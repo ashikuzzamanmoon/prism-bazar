@@ -1,0 +1,138 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
+import { z } from "zod";
+import { toast } from "sonner";
+import { useUpdateProductTypeMutation } from "@/redux/Api/productTypeApi";
+
+const productTypeSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+});
+
+type ProductTypeFormValues = z.infer<typeof productTypeSchema>;
+
+interface UpdateProductTypeProps {
+  isOpen: boolean;
+  onClose: () => void;
+  productType: { id: string; name: string } | null;
+  refetch?: () => void;
+}
+
+const UpdateProductType = ({
+  isOpen,
+  onClose,
+  productType,
+  refetch,
+}: UpdateProductTypeProps) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [updateProductType] = useUpdateProductTypeMutation();
+
+  const form = useForm<ProductTypeFormValues>({
+    resolver: zodResolver(productTypeSchema),
+    defaultValues: {
+      name: "",
+    },
+  });
+
+  useEffect(() => {
+    if (productType) {
+      form.reset({
+        name: productType.name,
+      });
+    }
+  }, [productType, form]);
+
+  const handleSubmit = async (data: ProductTypeFormValues) => {
+    if (!productType) return;
+    setIsSubmitting(true);
+    const toastId = toast.loading("Updating product type...");
+
+    try {
+      const response = await updateProductType({
+        id: productType.id,
+        data,
+      }).unwrap();
+
+      if (response.statusCode === 200) {
+        onClose();
+        toast.success(response?.message || "Product type updated successfully!", {
+          id: toastId,
+        });
+        if (refetch) refetch();
+      }
+    } catch (error: any) {
+      console.error("Error updating product type:", error);
+      toast.error(
+        error?.data?.message || error?.message || "Failed to update product type",
+        { id: toastId }
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Update Product Type</DialogTitle>
+          <DialogDescription>
+            Change the name of the product type.
+          </DialogDescription>
+        </DialogHeader>
+
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name *</FormLabel>
+                  <FormControl>
+                    <Input placeholder="e.g. Gaming Laptop" {...field} disabled={isSubmitting} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </form>
+        </Form>
+
+        <DialogFooter>
+          <Button variant="outline" onClick={onClose} disabled={isSubmitting}>
+            Cancel
+          </Button>
+          <Button onClick={form.handleSubmit(handleSubmit)} disabled={isSubmitting}>
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Update
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+export default UpdateProductType;

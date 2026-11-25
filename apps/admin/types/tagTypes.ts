@@ -1,0 +1,31 @@
+export enum TagTypes {
+  user = "user",
+  banner = "banner",
+  category = "category",
+  subCategory = "sub-category",
+  product = "product",
+  brand = "brand",
+  promo = "promo",
+  order = "order",
+  collection = "collection",
+  analytics = "analytics",
+  content = "content",
+  productType = "product-type",
+  deliveryZone = "delivery-zone",
+}
+
+export const TagTypeList = [
+  TagTypes.user,
+  TagTypes.banner,
+  TagTypes.category,
+  TagTypes.subCategory,
+  TagTypes.product,
+  TagTypes.brand,
+  TagTypes.promo,
+  TagTypes.order,
+  TagTypes.collection,
+  TagTypes.analytics,
+  TagTypes.content,
+  TagTypes.productType,
+  TagTypes.deliveryZone,
+];

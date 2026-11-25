@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "PromoCode" ADD COLUMN     "isDeleted" BOOLEAN NOT NULL DEFAULT false,
+ADD COLUMN     "perUserLimit" INTEGER DEFAULT 1,
+ADD COLUMN     "usageLimit" INTEGER,
+ADD COLUMN     "usedCount" INTEGER NOT NULL DEFAULT 0;
