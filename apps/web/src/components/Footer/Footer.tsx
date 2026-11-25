@@ -33,16 +33,15 @@ export default function Footer() {
                     <div className="lg:col-span-4 flex flex-col">
                         <Link href="/" className="inline-block transition-opacity duration-300 hover:opacity-80 -ml-2 -mt-10 mb-2">
                             <Image
-                                src="/white bg letter logo.png"
+                                src="/prism-bazar-logo.svg"
                                 alt="Prism Bazar Logo"
                                 width={180}
                                 height={50}
-                                className="w-40 md:w-48 h-auto object-contain mix-blend-multiply drop-shadow-sm"
+                                className="w-40 md:w-48 h-auto object-contain"
                             />
                         </Link>
                         <p className="text-gray-600/90 text-[15px] leading-relaxed pr-4">
-                            Your trusted destination for premium laptops, gadgets, and tech accessories.
-                            Experience high-quality products, authentic brands, and exceptional service every day.
+                            সিরাজগঞ্জ ও কাজীপুরসহ সারাদেশে খাঁটি অর্গানিক খাদ্য এবং শিক্ষার্থীদের শিক্ষা সহায়ক ও ডিজিটাল শিট সরবরাহকারী নির্ভরযোগ্য অনলাইন প্ল্যাটফর্ম।
                         </p>
 
                         {/* Social Icons */}
@@ -109,10 +108,10 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-3.5 mt-2">
                             {[
-                                { name: "Gaming Laptops", path: "/category/gaming" },
-                                { name: "Business Laptops", path: "/category/business" },
-                                { name: "Ultrabooks", path: "/category/ultrabooks" },
-                                { name: "Accessories", path: "/category/accessories" },
+                                { name: "অর্গানিক মধু ও ঘি", path: "/category/honey-ghee" },
+                                { name: "ঘানিভাঙা খাঁটি তেল", path: "/category/mustard-oil" },
+                                { name: "শিক্ষা সহায়িকা ও গাইড", path: "/category/study-guides" },
+                                { name: "ডিজিটাল শিট ও নোট", path: "/category/digital-notes" },
                             ].map((cat) => (
                                 <li key={cat.name}>
                                     <Link
@@ -141,9 +140,8 @@ export default function Footer() {
                                     <MapPin className="w-5 h-5 text-[#ff7200]" />
                                 </div>
                                 <span className="text-gray-600 text-[14px] leading-relaxed pt-1">
-                                    <strong className="text-gray-800 block mb-0.5">Bashundhara City</strong>
-                                    Level 6, Block D, Shop: 20, 21, 33 <br />
-                                    Panthapath, Dhaka
+                                    <strong className="text-gray-800 block mb-0.5">কাজীপুর, সিরাজগঞ্জ</strong>
+                                    সিরাজগঞ্জ, বাংলাদেশ
                                 </span>
                             </div>
 
@@ -184,7 +182,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 text-[14px]">Fast Delivery</h4>
-                            <p className="text-gray-500 text-[12px] leading-snug mt-1">Inside Dhaka: 5 Days<br />Outside Dhaka: 10 Days</p>
+                            <p className="text-gray-500 text-[12px] leading-snug mt-1">সিরাজগঞ্জ ও কাজীপুর: ২৪-৪৮ ঘণ্টা<br />সারাদেশে: ২-৪ কার্যদিবস</p>
                         </div>
                     </div>
 
@@ -194,7 +192,7 @@ export default function Footer() {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-900 text-[14px]">Verified Store</h4>
-                            <p className="text-gray-500 text-[12px] leading-snug mt-1"><span className="font-medium text-gray-700">Trade Lic:</span> TRAD/DNCC/025530/2024<br /><span className="font-medium text-gray-700">TIN:</span> 738884993913</p>
+                            <p className="text-gray-500 text-[12px] leading-snug mt-1">কাজীপুর, সিরাজগঞ্জ<br /><span className="font-medium text-gray-700">১০০% খাঁটি ও গুণগত মান নিশ্চিত</span></p>
                         </div>
                     </div>
 

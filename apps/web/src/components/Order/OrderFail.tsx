@@ -136,7 +136,7 @@ const OrderFail = ({ invoiceData }: { invoiceData: Order }) => {
                         {/* Brand */}
                         <div className="flex items-center gap-3">
                             <img
-                                src="/OneFv.jpg"
+                                src="/prism-bazar-logo.svg"
                                 alt="Prism Bazar Logo"
                                 width={200}
                                 height={60}
@@ -147,7 +147,7 @@ const OrderFail = ({ invoiceData }: { invoiceData: Order }) => {
                                     Prism Bazar
                                 </p>
                                 <p className="text-[10px] font-semibold text-gray-400 tracking-widest uppercase mt-0.5">
-                                    Bashundhara, Dhaka
+                                    কাজীপুর, সিরাজগঞ্জ
                                 </p>
                             </div>
                         </div>
@@ -395,7 +395,7 @@ const OrderFail = ({ invoiceData }: { invoiceData: Order }) => {
                     <div className="bg-red-50 border-t border-red-100 px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div className="flex items-center gap-2.5">
                             <img
-                                src="/OneFv.jpg"
+                                src="/prism-bazar-logo.svg"
                                 alt="Prism Bazar Logo"
                                 width={200}
                                 height={60}

@@ -44,7 +44,7 @@ const TermsOfServicePage = () => {
             </li>
             <li className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
               <span className="font-semibold text-foreground sm:w-1/3">Registered Address</span>
-              <span className="text-muted-foreground sm:w-2/3">Level 6, Block D, Shop No:20-21,<br />Bashundhara city shopping complex,<br />Panthapath, Dhaka, 1215</span>
+              <span className="text-muted-foreground sm:w-2/3">কাজীপুর, সিরাজগঞ্জ,<br />রাজশাহী বিভাগ, বাংলাদেশ</span>
             </li>
           </ul>
         </div>
@@ -229,11 +229,9 @@ const TermsOfServicePage = () => {
             <div className="flex-1 pt-6 md:pt-0 border-t md:border-t-0 border-border">
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest text-primary/80 block mb-2">Office Address</span>
               <p className="text-foreground leading-relaxed text-base font-medium">
-                Level 6, Block D, Shop No:20-21,
+                কাজীপুর, সিরাজগঞ্জ,
                 <br />
-                Bashundhara city shopping complex,
-                <br />
-                Panthapath, Dhaka, 1215
+                রাজশাহী বিভাগ, বাংলাদেশ
               </p>
             </div>
           </div>

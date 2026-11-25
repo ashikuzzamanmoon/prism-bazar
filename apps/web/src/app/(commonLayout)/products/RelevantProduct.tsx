@@ -58,7 +58,7 @@ export default function RelevantProduct({
           name: product.title,
           price: Number(product.price),
           photo: product.productImages?.[0]?.url?.includes("example.com")
-            ? "/prism-bazar.jpg"
+            ? "/product-placeholder.svg"
             : product.productImages?.[0]?.url || "/placeholder.svg",
           quantity: 1,
           deliveryCharge: Number(product?.deliveryCharge) || 0,

@@ -205,7 +205,7 @@ export function ProductDetail({
 
   const getImageUrl = (image: any): string => {
     if (image?.url) {
-      return image.url.includes("example.com") ? "/prism-bazar.jpg" : image.url;
+      return image.url.includes("example.com") ? "/product-placeholder.svg" : image.url;
     }
     return "/placeholder.svg";
   };

@@ -14,47 +14,47 @@ const Testimonials = () => {
     {
       id: 1,
       quote:
-        "Bought a Lenovo ThinkPad from here, delivery to Dhaka was super fast. Battery backup is amazing, using it for my office work every day.",
-      name: "Rakibul Hasan",
-      role: "Software Engineer",
+        "কাজীপুর থেকে খাঁটি সুন্দরবনের মধু ও গাওয়া ঘি অর্ডার করেছিলাম। ২ দিনেই পেয়েছি। মান অত্যন্ত খাঁটি ও অতুলনীয়!",
+      name: "মো: আসাদুজ্জামান",
+      role: "সরকারি চাকুরীজীবী, সিরাজগঞ্জ",
       avatar: "https://randomuser.me/api/portraits/men/32.jpg",
       rating: 5,
     },
     {
       id: 2,
       quote:
-        "Ordered a MacBook Air for my graphic design projects. Packaging was secure and got official warranty papers. Highly recommended!",
-      name: "Nusrat Jahan",
-      role: "Graphic Designer",
+        "ঘানিভাঙা খাঁটি সরিষার তেল ও কালোজিরার তেল নিলাম। কোনো ভেজাল নেই, সুন্দর ঝাঁঝ ও খাঁটি ঘ্রাণ। প্রিজম বাজারের প্রতি কৃতজ্ঞতা।",
+      name: "নাজনীন সুলতানা",
+      role: "গৃহিণী, ঢাকা",
       avatar: "https://randomuser.me/api/portraits/women/45.jpg",
       rating: 5,
     },
     {
       id: 3,
       quote:
-        "As a student in Chittagong, I was worried about authenticity. The Acer Aspire I got is genuine, and their EMI option was a lifesaver.",
-      name: "Shakib Al Mahmud",
-      role: "University Student",
+        "বিসিএস ও প্রাইমারি শিক্ষক নিয়োগের ডিজিটাল শিট ও নোটগুলো ডাউনলোড করে পড়ছি। সাজানো-গোছানো ও প্রস্তুতিতে দারুণ সহায়ক।",
+      name: "তানভীর আহমেদ",
+      role: "চাকরিপ্রার্থী ও শিক্ষার্থী",
       avatar: "https://randomuser.me/api/portraits/men/28.jpg",
-      rating: 4,
+      rating: 5,
     },
     {
       id: 4,
       quote:
-        "My gaming laptop (Asus ROG) arrived within 3 days. Performance is smooth for Valorant and FIFA. Customer support was very responsive.",
-      name: "Tanvir Ahmed",
-      role: "Gamer",
+        "খাঁটি প্রাকৃতিক মধু ও অর্গানিক বাদাম পেয়েছি দ্রুততম ডেলিভারিতে। প্যাকেজিং খুব সুরক্ষিত ছিল। সার্ভিস খুবই আন্তরিক।",
+      name: "মাহমুদুল হাসান",
+      role: "ব্যবসায়ী",
       avatar: "https://randomuser.me/api/portraits/men/76.jpg",
       rating: 5,
     },
     {
       id: 5,
       quote:
-        "Bought HP Pavilion for online classes and freelancing. Value for money and the keyboard is very comfortable for long typing sessions.",
-      name: "Farzana Akter",
-      role: "Freelancer",
+        "মাধ্যমিকের অল-ইন-ওয়ান স্টাডি গাইডটা ছোট ভাইয়ের জন্য নিয়েছিলাম। খুবই সহজ ভাষায় সমাধান দেওয়া এবং সময়মতো ডেলিভারি পেয়েছি।",
+      name: "ফারজানা আক্তার",
+      role: "বিশ্ববিদ্যালয় শিক্ষার্থী",
       avatar: "https://randomuser.me/api/portraits/women/60.jpg",
-      rating: 4,
+      rating: 5,
     },
   ];
 

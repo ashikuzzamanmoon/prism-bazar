@@ -95,7 +95,7 @@ const ContactPage = () => {
             Let&apos;s Start a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Conversation</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Have a question about our premium laptops, need technical support, or want to discuss a bulk order? Our expert team is ready to assist you.
+            খাঁটি অর্গানিক খাদ্য সামগ্রী, শিক্ষার্থীদের স্টাডি মেটেরিয়ালস বা পাইকারি অর্ডারের জন্য যেকোনো তথ্যে আমাদের সাথে যোগাযোগ করুন। আমাদের টিম আপনাকে সার্বক্ষণিক সহায়তা প্রদানে প্রস্তুত।
           </p>
         </div>
       </div>
@@ -148,9 +148,8 @@ const ContactPage = () => {
                     <div className="pt-1">
                       <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Our Office</h3>
                       <p className="text-slate-800 font-medium leading-relaxed text-lg">
-                        Level 6, Block D, Shop No: 33,<br />
-                        Bashundhara City,<br />
-                        Panthapath, Dhaka-1215
+                        কাজীপুর, সিরাজগঞ্জ,<br />
+                        রাজশাহী বিভাগ, বাংলাদেশ
                       </p>
                     </div>
                   </div>
@@ -318,7 +317,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="font-bold text-slate-900 tracking-tight">Prism Bazar</p>
-                  <p className="text-sm font-medium text-slate-500">Bashundhara City</p>
+                  <p className="text-sm font-medium text-slate-500">কাজীপুর, সিরাজগঞ্জ</p>
                 </div>
               </div>
             </div>

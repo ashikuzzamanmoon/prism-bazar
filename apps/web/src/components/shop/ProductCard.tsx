@@ -48,7 +48,7 @@ export default function ProductCard({ product }: Props) {
           id: product.id,
           name: product.title,
           price: Number(product.price),
-          photo: imgUrl.includes("example.com") ? "/prism-bazar.jpg" : imgUrl,
+          photo: imgUrl.includes("example.com") ? "/product-placeholder.svg" : imgUrl,
           quantity: 1,
           deliveryCharge: Number(prodAny.deliveryCharge) || 0,
           color: defaultColor

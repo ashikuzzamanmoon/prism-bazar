@@ -162,6 +162,16 @@ const CONDITIONS = [
   "BRAND_NEW",
   "PRE_OWNED",
 ] as const;
+
+const CONDITION_LABELS: Record<string, string> = {
+  FRESH: "তাজা / খাঁটি (Fresh)",
+  PACKAGED: "প্যাকেটজাত (Packaged)",
+  HANDMADE: "হাতে তৈরি / ঘানিভাঙা (Handmade)",
+  PRINTED: "মুদ্রিত / প্রিন্টেড বই (Printed)",
+  DIGITAL: "ডিজিটাল শিট / PDF (Digital)",
+  BRAND_NEW: "নতুন (Brand New)",
+  PRE_OWNED: "ব্যবহৃত (Pre-Owned)",
+};
 const TYPES = [
   "ORGANIC_FOOD",
   "EDUCATION_MATERIAL",
@@ -619,7 +629,7 @@ const CreateProduct = () => {
                         <SelectContent>
                           {CONDITIONS.map((c) => (
                             <SelectItem key={c} value={c}>
-                              {c.replace("_", " ")}
+                              {CONDITION_LABELS[c] || c.replace("_", " ")}
                             </SelectItem>
                           ))}
                         </SelectContent>

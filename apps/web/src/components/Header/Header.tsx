@@ -76,7 +76,7 @@ const Header = ({ collectionData }: { collectionData: ICollection[] }) => {
             onClick={() => setMobileOpen(false)}
           >
             <Image
-              src="/white bg letter logo.png"
+              src="/prism-bazar-logo.svg"
               alt="Prism Bazar Logo"
               width={240}
               height={80}
@@ -179,7 +179,7 @@ const Header = ({ collectionData }: { collectionData: ICollection[] }) => {
               onClick={() => setMobileOpen(false)}
             >
               <Image
-                src="/white bg letter logo.png"
+                src="/prism-bazar-logo.svg"
                 alt="Prism Bazar Logo"
                 width={200}
                 height={60}
@@ -292,7 +292,7 @@ const Header = ({ collectionData }: { collectionData: ICollection[] }) => {
                 onClick={() => setMobileOpen(false)}
               >
                 <Image
-                  src="/white bg letter logo.png"
+                  src="/prism-bazar-logo.svg"
                   alt="Prism Bazar Logo"
                   width={180}
                   height={40}

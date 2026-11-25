@@ -81,7 +81,7 @@ const ProductCard = ({ product, onBuyNow, onView }: ProductCardProps) => {
           name: product.title,
           price: Number(product.price),
           photo: product.productImages?.[0]?.url?.includes("example.com")
-            ? "/prism-bazar.jpg"
+            ? "/product-placeholder.svg"
             : product.productImages?.[0]?.url || "/placeholder.svg",
           quantity: 1,
           deliveryCharge: Number(product?.deliveryCharge) || 0,
@@ -122,7 +122,7 @@ const ProductCard = ({ product, onBuyNow, onView }: ProductCardProps) => {
       {/* Image */}
       <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg mb-3">
         <Image
-          src={imageUrl.includes("example.com") ? "/prism-bazar.jpg" : imageUrl}
+          src={imageUrl.includes("example.com") ? "/product-placeholder.svg" : imageUrl}
           alt={product.title}
           fill
           className="object-contain transition-transform duration-300 group-hover:scale-105"

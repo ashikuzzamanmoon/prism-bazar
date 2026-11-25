@@ -434,7 +434,7 @@ const CompareProductShow = ({ productData }: { productData: IProduct }) => {
                           getPrimaryImage(
                             currentProduct.productImages as IProductImage[],
                           ).includes("example.com")
-                            ? "/prism-bazar.jpg"
+                            ? "/product-placeholder.svg"
                             : getPrimaryImage(
                               currentProduct.productImages as IProductImage[],
                             )

@@ -93,8 +93,8 @@ interface ProductData {
   ratings?: number; // ── NEW ──
   view?: number; // ── NEW ──
   reviewsCount?: number;
-  condition: "BRAND_NEW" | "PRE_OWNED";
-  type: "LAPTOP" | "ACCESSORY";
+  condition?: string;
+  type?: string;
   typeId?: string | null;
   isPublish: boolean;
   isDeleted?: boolean;
@@ -161,9 +161,23 @@ const updateProductSchema = z.object({
   ratings: z.number().min(0).optional(), // ── NEW ──
   view: z.number().min(0).optional(), // ── NEW ──
   reviewsCount: z.number().min(0).optional(),
-  inventoryQuantity: z.number().int().min(0),
-  condition: z.enum(["BRAND_NEW", "PRE_OWNED"]),
-  type: z.enum(["LAPTOP", "ACCESSORY"]),
+  inventoryQuantity: z.number().int().min(0).optional().default(0),
+  condition: z.enum([
+    "FRESH",
+    "PACKAGED",
+    "HANDMADE",
+    "PRINTED",
+    "DIGITAL",
+    "BRAND_NEW",
+    "PRE_OWNED",
+  ]).optional().default("FRESH"),
+  type: z.enum([
+    "ORGANIC_FOOD",
+    "EDUCATION_MATERIAL",
+    "GENERAL",
+    "LAPTOP",
+    "ACCESSORY",
+  ]).optional().default("ORGANIC_FOOD"),
   typeId: z.string().optional(),
   categoryIds: z.array(z.string()).min(1, "Select at least one category"),
   subCategoryIds: z.array(z.string()).optional(),
@@ -184,8 +198,33 @@ const generateSlug = (title: string) =>
     .replace(/[^\w\s-]/g, "")
     .replace(/\s+/g, "-");
 
-const CONDITIONS = ["BRAND_NEW", "PRE_OWNED"] as const;
-const TYPES = ["LAPTOP", "ACCESSORY"] as const;
+const CONDITIONS = [
+  "FRESH",
+  "PACKAGED",
+  "HANDMADE",
+  "PRINTED",
+  "DIGITAL",
+  "BRAND_NEW",
+  "PRE_OWNED",
+] as const;
+
+const CONDITION_LABELS: Record<string, string> = {
+  FRESH: "তাজা / খাঁটি (Fresh)",
+  PACKAGED: "প্যাকেটজাত (Packaged)",
+  HANDMADE: "হাতে তৈরি / ঘানিভাঙা (Handmade)",
+  PRINTED: "মুদ্রিত / প্রিন্টেড বই (Printed)",
+  DIGITAL: "ডিজিটাল শিট / PDF (Digital)",
+  BRAND_NEW: "নতুন (Brand New)",
+  PRE_OWNED: "ব্যবহৃত (Pre-Owned)",
+};
+
+const TYPES = [
+  "ORGANIC_FOOD",
+  "EDUCATION_MATERIAL",
+  "GENERAL",
+  "LAPTOP",
+  "ACCESSORY",
+] as const;
 const FEATURE_TYPES = ["HIGHLIGHT", "SPECIFICATION"] as const;
 
 // ─── Multi-Select Combobox ────────────────────────────────────────────────────
@@ -644,8 +683,8 @@ const UpdateProduct = ({
           inventoryQuantity !== undefined && inventoryQuantity !== null
             ? inventoryQuantity
             : undefined,
-        condition: productData.condition ?? "BRAND_NEW",
-        type: productData.type ?? "LAPTOP",
+        condition: (productData.condition as any) ?? "FRESH",
+        type: (productData.type as any) ?? "ORGANIC_FOOD",
         typeId: productData.typeId ?? "",
         collectionIds,
         categoryIds,
@@ -946,7 +985,7 @@ const UpdateProduct = ({
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-sm font-medium text-gray-700">
-                            Condition <span className="text-red-500">*</span>
+                            Condition
                           </FormLabel>
                           <Select
                             onValueChange={field.onChange}
@@ -960,7 +999,7 @@ const UpdateProduct = ({
                             <SelectContent>
                               {CONDITIONS.map((c) => (
                                 <SelectItem key={c} value={c}>
-                                  {c.replace("_", " ")}
+                                  {CONDITION_LABELS[c] || c.replace("_", " ")}
                                 </SelectItem>
                               ))}
                             </SelectContent>
@@ -975,7 +1014,7 @@ const UpdateProduct = ({
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-sm font-medium text-gray-700">
-                            Product Type <span className="text-red-500">*</span>
+                            Product Type
                           </FormLabel>
                           <Select
                             onValueChange={field.onChange}
@@ -1755,7 +1794,12 @@ const UpdateProduct = ({
           </Button>
           <Button
             type="button"
-            onClick={handleSubmit(onSubmit)}
+            onClick={handleSubmit(onSubmit, (errors) => {
+              console.error("Update product validation errors:", errors);
+              const firstKey = Object.keys(errors)[0];
+              const msg = (errors as any)[firstKey]?.message || `Please check ${firstKey}`;
+              toast.error(`ফর্ম পূরণ অসম্পূর্ণ: ${msg}`);
+            })}
             disabled={updating}
           >
             {updating && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

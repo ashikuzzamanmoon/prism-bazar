@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Rounded Background Container -->
+  <rect width="64" height="64" rx="14" fill="#15803d"/>
+  
+  <!-- Prism / Diamond Base in Gold -->
+  <polygon points="32,10 52,24 45,46 19,46 12,24" fill="#fef08a" opacity="0.25"/>
+  <polygon points="32,10 52,24 45,46 32,52 19,46 12,24" stroke="#facc15" stroke-width="2" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Stylized Organic Leaf in Vibrant Green -->
+  <path d="M32,12 C44,18 49,29 44,42 C38,47 26,45 23,34 C21,24 26,16 32,12 Z" fill="#22c55e"/>
+  
+  <!-- Leaf Vein & Book Pages -->
+  <path d="M28,38 C30,29 34,22 38,16" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M31,32 C35,30 38,32 40,36" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M30,25 C33,23 36,25 38,28" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Open Book at bottom -->
+  <path d="M20,44 Q32,40 44,44" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M32,40 L32,47" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+</svg>

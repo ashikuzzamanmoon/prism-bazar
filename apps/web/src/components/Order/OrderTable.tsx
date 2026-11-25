@@ -56,7 +56,7 @@ const productImg = (item: any) => {
     const p = imgs.find((i: any) => i.isPrimary) || imgs[0];
     if (p?.url && !p.url.includes("example.com")) return p.url;
   }
-  return "/prism-bazar.jpg";
+  return "/prism-bazar-logo.svg";
 };
 
 // ─── Status configs ───────────────────────────────────────────────────────────
@@ -274,7 +274,7 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
     >
       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
         <img
-          src="/prism-bazar.jpg"
+          src="/prism-bazar-logo.svg"
           alt="Prism Bazar"
           style={{ width: "40px", height: "40px", objectFit: "contain" }}
         />
@@ -300,7 +300,7 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
               marginTop: "3px",
             }}
           >
-            Bashundhara, Dhaka
+            কাজীপুর, সিরাজগঞ্জ
           </div>
         </div>
       </div>
@@ -919,7 +919,7 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
     >
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <img
-          src="/prism-bazar.jpg"
+          src="/prism-bazar-logo.svg"
           alt="Prism Bazar"
           style={{ width: "28px", height: "28px", objectFit: "contain" }}
         />

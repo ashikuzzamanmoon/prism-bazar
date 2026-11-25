@@ -29,7 +29,7 @@ const getProductImage = (item: any) => {
     const img = primary || images[0];
     if (img?.url && !img.url.includes("example.com")) return img.url;
   }
-  return "/OneFv.jpg";
+  return "/prism-bazar-logo.svg";
 };
 
 // ─── Status badge (UI only — for the visible invoice card) ───────────────────
@@ -173,7 +173,7 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
     >
       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
         <img
-          src="/OneFv.jpg"
+          src="/prism-bazar-logo.svg"
           alt="Prism Bazar"
           style={{ width: "40px", height: "40px", objectFit: "contain" }}
         />
@@ -199,7 +199,7 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
               marginTop: "3px",
             }}
           >
-            Bashundhara, Dhaka
+            কাজীপুর, সিরাজগঞ্জ
           </div>
         </div>
       </div>
@@ -818,7 +818,7 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
     >
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <img
-          src="/OneFv.jpg"
+          src="/prism-bazar-logo.svg"
           alt="Prism Bazar"
           style={{ width: "28px", height: "28px", objectFit: "contain" }}
         />
@@ -1002,7 +1002,7 @@ const OrderSuccess = ({ invoiceData }: { invoiceData: Order }) => {
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 px-8 pt-8 pb-6">
             <div className="flex items-center gap-3">
               <img
-                src="/OneFv.jpg"
+                src="/prism-bazar-logo.svg"
                 alt="Prism Bazar Logo"
                 width={200}
                 height={60}
@@ -1013,7 +1013,7 @@ const OrderSuccess = ({ invoiceData }: { invoiceData: Order }) => {
                   Prism Bazar
                 </p>
                 <p className="text-[10px] font-semibold text-gray-400 tracking-widest uppercase mt-0.5">
-                  Bashundhara, Dhaka
+                  কাজীপুর, সিরাজগঞ্জ
                 </p>
               </div>
             </div>
@@ -1274,7 +1274,7 @@ const OrderSuccess = ({ invoiceData }: { invoiceData: Order }) => {
           <div className="bg-orange-50 border-t border-orange-100 px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-2.5">
               <img
-                src="/OneFv.jpg"
+                src="/prism-bazar-logo.svg"
                 alt="Prism Bazar Logo"
                 width={200}
                 height={60}

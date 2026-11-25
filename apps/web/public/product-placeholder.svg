@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" fill="none">
+  <!-- Subtle Soft Background -->
+  <rect width="400" height="400" rx="16" fill="#f8fafc"/>
+  <rect x="2" y="2" width="396" height="396" rx="14" stroke="#e2e8f0" stroke-width="2" fill="none"/>
+  
+  <!-- Subtle decorative circular glow -->
+  <circle cx="200" cy="180" r="100" fill="#22c55e" fill-opacity="0.08"/>
+  
+  <!-- Prism / Diamond base -->
+  <polygon points="200,90 260,135 240,205 160,205 140,135" fill="#ca8a04" opacity="0.15"/>
+  <polygon points="200,90 260,135 240,205 200,220 160,205 140,135" stroke="#ca8a04" stroke-width="4" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Organic Leaf in Green -->
+  <path d="M200,95 C235,115 250,150 235,190 C215,205 175,200 170,165 C165,135 180,110 200,95 Z" fill="#16a34a"/>
+  
+  <!-- Leaf Vein & Book Pages -->
+  <path d="M190,175 C195,145 208,125 220,105" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M198,155 C210,150 220,155 226,165" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M196,135 C206,130 214,135 220,142" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Open Book Base -->
+  <path d="M165,200 Q200,190 235,200" stroke="#ffffff" stroke-width="5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Text: Prism Bazar -->
+  <text x="200" y="280" font-family="'Segoe UI', -apple-system, Roboto, sans-serif" font-size="26" font-weight="800" fill="#15803d" text-anchor="middle" letter-spacing="-0.5">
+    Prism<tspan fill="#ca8a04">Bazar</tspan>
+  </text>
+  <text x="200" y="315" font-family="'Hind Siliguri', 'Segoe UI', sans-serif" font-size="16" font-weight="600" fill="#64748b" text-anchor="middle">
+    পণ্য ইমেজ শীঘ্রই যুক্ত হচ্ছে
+  </text>
+</svg>

@@ -27,18 +27,17 @@ const NewFooter = () => {
           <div className="flex items-center h-8">
             <Link href="/" className="flex items-center md:mt-12 -ml-3 md:-ml-6 md:mb-12">
               <Image
-                src="/white bg letter logo.png"
-                alt="Mina Curtains & Furnishings"
+                src="/prism-bazar-logo.svg"
+                alt="Prism Bazar Logo"
                 width={200}
                 height={60}
-                className="w-28 sm:w-40 md:w-48 lg:w-52 h-auto object-contain"
+                className="w-36 sm:w-44 md:w-52 h-auto object-contain"
               />
             </Link>
           </div>
 
           <p className="text-sm text-gray-500 leading-relaxed my-8 max-w-sm">
-            Your trusted destination for premium laptops and tech accessories.
-            Quality products, exceptional service.
+            সিরাজগঞ্জ ও কাজীপুরসহ সারাদেশে খাঁটি অর্গানিক খাদ্য এবং শিক্ষার্থীদের শিক্ষা সহায়ক ও ডিজিটাল শিট সরবরাহকারী নির্ভরযোগ্য অনলাইন প্ল্যাটফর্ম।
           </p>
 
           {/* Social Icons */}
@@ -114,7 +113,7 @@ const NewFooter = () => {
               { label: "Home", href: "/" },
               { label: "About", href: "/about" },
               { label: "Shop", href: "/products" },
-              { label: "Laptops", href: "/products" },
+              { label: "অর্গানিক ও শিক্ষা সামগ্রী", href: "/products" },
             ].map((item) => (
               <li key={item.label}>
                 <Link
@@ -156,8 +155,7 @@ const NewFooter = () => {
           <h3 className="text-xl font-semibold mb-6">Address</h3>
 
           <p className="text-sm font-medium text-gray-500 whitespace-pre-line mb-4">
-            Bashundhara City{"\n"}
-            Level 6, Block D, Shop: 20, 21 Panthapath, Dhaka
+            কাজীপুর, সিরাজগঞ্জ
           </p>
 
           <a

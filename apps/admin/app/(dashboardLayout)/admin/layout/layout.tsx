@@ -21,6 +21,14 @@ const AdminCustomLayout = ({ children }: AdminLayoutProps) => {
       {/* Sidebar */}
       <Sidebar
         routes={adminRoutes()}
+        title="Prism Bazar"
+        logo={
+          <img
+            src="/prism-bazar-icon.svg"
+            alt="Prism Bazar"
+            className="h-6 w-6 object-contain"
+          />
+        }
         mobileOpen={mobileOpen}
         setMobileOpen={setMobileOpen}
         collapsed={sidebarCollapsed}

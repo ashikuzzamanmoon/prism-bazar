@@ -21,7 +21,7 @@ export function buildOrganizationSchema() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.domain,
-    logo: absoluteUrl("/OneFv.jpg"),
+    logo: absoluteUrl("/prism-bazar-logo.svg"),
     sameAs: [
       "https://www.facebook.com/prismbazar",
       "https://www.instagram.com/prismbazar",
@@ -145,10 +145,10 @@ export function buildArticleSchema({
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/OneFv.jpg"),
+        url: absoluteUrl("/prism-bazar-logo.svg"),
       },
     },
-    image: [absoluteUrl("/OneTGrap.jpg")],
+    image: [absoluteUrl("/hero-banner-organic.jpg")],
   };
 }
 

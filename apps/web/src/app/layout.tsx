@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Montserrat, Geist_Mono } from "next/font/google";
 import { ReduxProvider } from "@/redux/provider";
 import "./globals.css";
-import icon from "../../public/OneFv.jpg";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -31,7 +30,9 @@ export const metadata: Metadata = {
     template: "%s | Prism Bazar",
   },
   icons: {
-    icon: icon.src,
+    icon: "/prism-bazar-icon.svg",
+    shortcut: "/prism-bazar-icon.svg",
+    apple: "/prism-bazar-icon.svg",
   },
   authors: [{ name: "Prism Bazar Team" }],
 };

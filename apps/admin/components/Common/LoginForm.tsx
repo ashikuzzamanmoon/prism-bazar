@@ -75,6 +75,21 @@ export default function LoginForm() {
       {/* Login Form Container */}
       <div className="relative z-10 w-full max-w-md px-4 py-8 sm:px-0">
         <div className="backdrop-blur-md bg-white/10 rounded-xl border border-white/20 p-8 shadow-2xl">
+          {/* Logo & Header */}
+          <div className="flex flex-col items-center mb-6 text-center">
+            <img
+              src="/prism-bazar-logo.svg"
+              alt="Prism Bazar Logo"
+              className="h-10 w-auto object-contain mb-2 filter brightness-110 drop-shadow"
+            />
+            <h2 className="text-xl font-bold text-white tracking-wide">
+              Admin Dashboard
+            </h2>
+            <p className="text-xs text-gray-300 mt-1">
+              প্রিজম বাজার অ্যাডমিন প্যানেলে স্বাগতম
+            </p>
+          </div>
+
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
             {/* Email Field */}
             <div className="space-y-1">

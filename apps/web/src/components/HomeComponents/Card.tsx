@@ -34,7 +34,7 @@ const Card = ({ productData }: { productData: IProduct }) => {
                     name: product.title,
                     price: Number(product.price),
                     photo: product.productImages?.[0]?.url?.includes("example.com")
-                        ? "/prism-bazar.jpg"
+                        ? "/product-placeholder.svg"
                         : (product.productImages?.[0]?.url || "/placeholder.svg"),
                     quantity: 1,
                     deliveryCharge: Number(product?.deliveryCharge) || 0,
@@ -48,7 +48,7 @@ const Card = ({ productData }: { productData: IProduct }) => {
 
     const getImageUrl = (image: any): string => {
         if (image?.url) {
-            return image.url.includes("example.com") ? "/prism-bazar.jpg" : image.url;
+            return image.url.includes("example.com") ? "/product-placeholder.svg" : image.url;
         }
         return "/placeholder.svg";
     };

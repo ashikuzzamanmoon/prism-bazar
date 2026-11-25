@@ -29,11 +29,10 @@ export default function SubscriptionOffer() {
                 Stay Updated,
               </h2>
               <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold italic leading-tight mb-5">
-                <span className="text-primary">Stay Ahead</span>
+                <span className="text-primary">Stay Healthy & Smart</span>
               </h2>
               <p className="text-gray-400 text-sm md:text-base mb-8 max-w-md leading-relaxed">
-                Be the first to know about new laptop arrivals, exclusive deals,
-                and tech tips delivered straight to your inbox.
+                খাঁটি অর্গানিক খাদ্যের নতুন অফার, সিজনাল ডিসকাউন্ট এবং শিক্ষার্থীদের গুরুত্বপূর্ণ স্টাডি মেটেরিয়ালসের আপডেট সরাসরি পেতে সাবস্ক্রাইব করুন।
               </p>
 
               {/* Email form - pill style like reference */}
@@ -43,7 +42,7 @@ export default function SubscriptionOffer() {
               >
                 <input
                   type="email"
-                  placeholder="Your Email"
+                  placeholder="আপনার ইমেইল দিন"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -62,15 +61,15 @@ export default function SubscriptionOffer() {
 
             {/* Right Image */}
             <div className="hidden md:flex w-1/2 h-full items-end justify-center relative self-stretch min-h-[380px]">
-              {/* Orange glow behind the laptop */}
-              <div className="absolute bottom-8 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+              {/* Glow behind the image */}
+              <div className="absolute bottom-8 right-1/4 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <Image
-                  src="https://img.freepik.com/free-photo/laptop-wooden-table_53876-20635.jpg?uid=R141745868&ga=GA1.1.406508785.1728154460&semt=ais_hybrid&w=740"
-                  alt="Premium Laptop"
+                  src="/hero-banner-organic.jpg"
+                  alt="খাঁটি অর্গানিক খাদ্য ও শিক্ষা সামগ্রী - প্রিজম বাজার"
                   width={500}
-                  height={400}
-                  className="object-contain drop-shadow-2xl relative z-10 hover:scale-105 transition-transform duration-700 rounded-3xl"
+                  height={320}
+                  className="object-cover h-64 w-full drop-shadow-2xl relative z-10 hover:scale-105 transition-transform duration-700 rounded-2xl border border-white/10"
                 />
               </div>
             </div>

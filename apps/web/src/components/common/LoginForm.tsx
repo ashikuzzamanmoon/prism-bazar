@@ -66,7 +66,7 @@ const Login = () => {
                         className="flex items-center justify-center cursor-pointer mb-5"
                     >
                         <Image
-                            src="/white bg letter logo.png"
+                            src="/prism-bazar-logo.svg"
                             alt="Prism Bazar"
                             width={200}
                             height={60}

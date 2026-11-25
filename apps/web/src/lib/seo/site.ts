@@ -50,7 +50,7 @@ export function buildMetadata({
   const canonical = absoluteUrl(path);
   const resolvedImages = images?.length
     ? images
-    : [absoluteUrl("/OneTGrap.jpg")];
+    : [absoluteUrl("/hero-banner-organic.jpg")];
 
   return {
     title: resolvedTitle,

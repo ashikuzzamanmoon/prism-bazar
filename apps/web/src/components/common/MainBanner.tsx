@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
@@ -23,26 +23,76 @@ interface IBanner {
   link?: string;
 }
 
-const Banner = ({ bannerData }: { bannerData: IBanner[] }) => {
-  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
+const defaultMainBanners: IBanner[] = [
+  {
+    id: "default-banner-1",
+    title: "খাঁটি অর্গানিক খাদ্য সামগ্রী",
+    slug: "organic-food",
+    description: "সুন্দরবনের প্রাকৃতিক খাঁটি মধু, ঘানিভাঙা সরিষার তেল ও খাঁটি গাওয়া ঘি। সিরাজগঞ্জ ও কাজীপুর এলাকায় দ্রুত হোম ডেলিভারি।",
+    image: "/hero-banner-organic.jpg",
+    isPublish: true,
+    isSide: false,
+    link: "/products",
+  },
+  {
+    id: "default-banner-2",
+    title: "শিক্ষার্থীদের সহায়িকা ও ডিজিটাল শিট",
+    slug: "education-materials",
+    description: "এসএসসি, এইচএসসি ও বিভিন্ন শ্রেণির পূর্ণাঙ্গ স্টাডি গাইড, মডেল টেস্ট ও ডাউনলোডযোগ্য স্পেশাল পিডিএফ শিট।",
+    image: "/hero-banner-education.jpg",
+    isPublish: true,
+    isSide: false,
+    link: "/products",
+  },
+];
 
-  const publishBanner = bannerData.filter(
-    (banner) => banner.isPublish === true && banner.isSide !== true,
+const defaultSideBanners: IBanner[] = [
+  {
+    id: "default-side-1",
+    title: "খাঁটি মধু ও সরিষার তেল",
+    slug: "honey-oil",
+    description: "১০০% প্রাকৃতিক ও ফ্রেশ",
+    image: "/side-banner-1.jpg",
+    isPublish: true,
+    isSide: true,
+    link: "/products",
+  },
+  {
+    id: "default-side-2",
+    title: "ডিজিটাল শিট ডাউনলোড",
+    slug: "digital-sheets",
+    description: "ইনস্ট্যান্ট পিডিএফ অ্যাক্সেস",
+    image: "/side-banner-2.jpg",
+    isPublish: true,
+    isSide: true,
+    link: "/products",
+  },
+];
+
+const Banner = ({ bannerData = [] }: { bannerData?: IBanner[] }) => {
+  const autoplayPlugin = useMemo(
+    () => Autoplay({ delay: 4000, stopOnInteraction: true }),
+    [],
   );
 
-  console.log("publishBanner", publishBanner);
+  const rawPublishBanner = bannerData?.filter(
+    (banner) => banner?.isPublish === true && banner?.isSide !== true,
+  ) || [];
 
-  const sideBanner = bannerData.filter((banner) => banner.isSide === true);
+  const publishBanner = rawPublishBanner.length > 0 ? rawPublishBanner : defaultMainBanners;
+
+  const rawSideBanner = bannerData?.filter((banner) => banner?.isSide === true) || [];
+  const sideBanner = rawSideBanner.length > 0 ? rawSideBanner : defaultSideBanners;
   return (
     <div className="">
       <div className="w-full overflow-hidden max-w-7xl mx-auto px-2 md:px-0">
         <div className="grid grid-cols-12 gap-3 md:gap-4">
           <div className="col-span-12 md:col-span-9 h-full">
             <Carousel
-              plugins={[plugin.current]}
+              plugins={[autoplayPlugin]}
               className="w-full h-full"
-              onMouseEnter={plugin.current.stop}
-              onMouseLeave={plugin.current.reset}
+              onMouseEnter={() => autoplayPlugin.stop()}
+              onMouseLeave={() => autoplayPlugin.reset()}
             >
               <CarouselContent className="h-full">
                 {publishBanner?.map((item) => (
@@ -71,8 +121,8 @@ const Banner = ({ bannerData }: { bannerData: IBanner[] }) => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-4 hidden md:flex text-white border-white bg-black/30 hover:bg-[#ff7200] hover:border-[#ff7200] hover:text-white" />
-              <CarouselNext className="right-4 hidden md:flex text-white border-white bg-black/30 hover:bg-[#ff7200] hover:border-[#ff7200] hover:text-white" />
+              <CarouselPrevious className="left-4 hidden md:flex text-white border-white bg-black/30 hover:bg-[#16a34a] hover:border-[#16a34a] hover:text-white" />
+              <CarouselNext className="right-4 hidden md:flex text-white border-white bg-black/30 hover:bg-[#16a34a] hover:border-[#16a34a] hover:text-white" />
             </Carousel>
           </div>
 
