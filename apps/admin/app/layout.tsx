@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     template: "%s | Prism Bazar Admin",
   },
   description: "Prism Bazar Admin Portal - Organic Food & Education Materials",
+  icons: {
+    icon: "/prism-bazar-icon.png",
+    shortcut: "/prism-bazar-icon.png",
+    apple: "/prism-bazar-icon.png",
+  },
 };
 
 export default function RootLayout({
