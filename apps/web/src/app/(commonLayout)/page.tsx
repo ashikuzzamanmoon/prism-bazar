@@ -7,7 +7,7 @@ import AccessoriesProduct from "@/components/HomeComponents/AccessoriesProduct";
 import BrandsShowing from "@/components/HomeComponents/BrandsShowing";
 import CategoryDisplay from "@/components/HomeComponents/CategoryDisplay";
 import CollectionProduct from "@/components/HomeComponents/CollectionProduct";
-import LaptopsCollection from "@/components/HomeComponents/LaptopsCollection";
+import PopularProductsCollection from "@/components/HomeComponents/PopularProductsCollection";
 import NewProduct from "@/components/HomeComponents/NewProductsShowing";
 import PreOwnedProducts from "@/components/HomeComponents/PreOwnedProducts";
 import SubscriptionOffer from "@/components/HomeComponents/SubscriptionOffer";
@@ -57,7 +57,7 @@ const HomePage = async () => {
           </div>
         ))}
       </div>
-      <LaptopsCollection
+      <PopularProductsCollection
         productData={productData?.data || []}
         title="অর্গানিক ও শিক্ষা পণ্য সামগ্রী"
       />

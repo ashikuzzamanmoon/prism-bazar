@@ -78,8 +78,8 @@ interface IProduct {
   price: string;
   basePrice: string;
   discount: number;
-  condition: "BRAND_NEW" | "PRE_OWNED";
-  type: "LAPTOP" | "ACCESSORY";
+  condition: string;
+  type: string;
   typeEntity?: { name: string };
   isPublish: boolean;
   isDelete: boolean;

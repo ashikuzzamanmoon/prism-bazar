@@ -32,7 +32,7 @@ import {
   IProductColor,
   IProductOption,
 } from "@/types/productTypes";
-import { LaptopSpecs } from "./LaptopSpecs";
+import { ProductSpecs } from "./ProductSpecs";
 import { toast } from "sonner";
 import { trackEvent } from "@/lib/tracking";
 
@@ -738,7 +738,7 @@ export function ProductDetail({
         </div>
       </div>
       {productData?.productFeatures && productData.productFeatures.length > 0 && (
-        <LaptopSpecs features={productData?.productFeatures} />
+        <ProductSpecs features={productData?.productFeatures} />
       )}
       <div className=" pt-8 border-t mt-8">
         <p className="text-gray-700 whitespace-pre-wrap">

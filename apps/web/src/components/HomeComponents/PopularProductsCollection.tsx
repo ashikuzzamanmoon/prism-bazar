@@ -6,7 +6,7 @@ import { RootState } from "@/redux/store";
 import { useRouter } from "next/navigation";
 import { addToCart } from "@/redux/slice/cartSlice";
 
-export default function LaptopsCollection({
+export default function PopularProductsCollection({
     productData,
     title = "জনপ্রিয় পণ্যসমূহ",
 }: {
@@ -63,29 +63,26 @@ export default function LaptopsCollection({
         };
 
     return (
-        <div className="w-full max-w-7xl mx-auto px-2 md:px-0 py-4">
-            <div className="mb-6 mt-6">
-                <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
-                <div className="h-0.5 w-10 bg-[#16a34a] rounded-full mt-1" />
-            </div>
-            {productData?.length === 0 ? (
-                <div>
-                    <p className="text-center bg-red-50 text-red-500 py-10">
-                        No new products available.
-                    </p>
+        <section className="w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Section Header */}
+                <div className="flex justify-between items-center mb-8">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{title}</h2>
                 </div>
-            ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-4">
-                    {productData.map((product) => (
-                        <ProductCard
-                            key={product.id}
-                            product={product}
-                            onBuyNow={handleBuyNow}
-                            onView={handleView}
-                        />
+
+                {/* Product Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    {productData?.map((product) => (
+                        <div key={product.id} className="h-full">
+                            <ProductCard
+                                product={product}
+                                onBuyNow={() => handleBuyNow(product)}
+                                onView={() => handleView(product)}
+                            />
+                        </div>
                     ))}
                 </div>
-            )}
-        </div>
+            </div>
+        </section>
     );
 }

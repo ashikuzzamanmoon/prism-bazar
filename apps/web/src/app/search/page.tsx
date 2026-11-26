@@ -13,12 +13,12 @@ export async function generateMetadata({ searchParams }: SearchPageProps) {
   const { q = "" } = await searchParams;
 
   return buildMetadata({
-    title: q ? `Search results for ${q}` : "Search laptops",
+    title: q ? `Search results for ${q}` : "পণ্য খুঁজুন | Search Products",
     description: q
       ? `Browse search results for ${q}, ranked by relevance, product popularity, review quality, and price competitiveness.`
-      : "Search laptops by brand, processor, RAM, SSD, and budget.",
+      : "সিরাজগঞ্জ ও কাজীপুরসহ সারাদেশে খাঁটি অর্গানিক খাদ্য এবং শিক্ষা সামগ্রী খুঁজুন।",
     path: q ? `/search?q=${encodeURIComponent(q)}` : "/search",
-    keywords: q ? [q, `${q} laptop`, `${q} notebook`] : ["search laptops"],
+    keywords: q ? [q, `${q} prism bazar`] : ["অর্গানিক ফুড", "শিক্ষা সামগ্রী", "প্রিজম বাজার"],
     noIndex: !q,
   });
 }
@@ -40,7 +40,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           Search
         </p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900">
-          {q ? `Results for “${q}”` : "Find your next laptop"}
+          {q ? `Results for “${q}”` : "প্রয়োজনীয় পণ্য সহজে খুঁজুন"}
         </h1>
         <p className="mt-2 max-w-3xl text-sm text-gray-600">
           Results are ranked by title match, description relevance, typo
@@ -60,8 +60,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         </>
       ) : (
         <div className="rounded-2xl border border-dashed border-gray-300 bg-white px-6 py-12 text-center text-gray-600">
-          Search by brand, model, processor, RAM, SSD, or intent phrases like
-          gaming laptop or ultrabook.
+          পণ্যটির নাম বা ক্যাটাগরি লিখে সার্চ করুন — যেমন: খাঁটি মধু, গাওয়া ঘি, সরিষার তেল, স্টাডি গাইড বা ডিজিটাল শিট।
         </div>
       )}
     </div>

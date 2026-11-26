@@ -784,8 +784,6 @@ export class ProductsService {
       where: {
         isDeleted: false,
         isPublish: true,
-        type: ProductType.LAPTOP,
-        condition: ProductCondition.BRAND_NEW,
       },
       take: 20,
       orderBy: {
@@ -840,8 +838,6 @@ export class ProductsService {
       where: {
         isDeleted: false,
         isPublish: true,
-        type: ProductType.LAPTOP,
-        condition: ProductCondition.PRE_OWNED,
       },
       take: 20,
       orderBy: {

@@ -68,7 +68,6 @@ const productTypes = [
   "ORGANIC_FOOD",
   "EDUCATION_MATERIAL",
   "GENERAL",
-  "LAPTOP",
   "ACCESSORY",
 ];
 

@@ -6,15 +6,16 @@ import { buildMetadata } from "@/lib/seo/site";
 import { buildBreadcrumbSchema, buildItemListSchema } from "@/lib/seo/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Laptop Buying Guides Bangladesh 2026",
+  title: "প্রিজম বাজার গাইড ও দিকনির্দেশনা (Guides)",
   description:
-    "Explore laptop buying guides for Bangladesh including budget picks, gaming guidance, and student recommendations with updated local context.",
+    "খাঁটি অর্গানিক খাদ্যের গুণাগুণ ও শিক্ষার্থীদের পরীক্ষার প্রস্তুতি বিষয়ক দিকনির্দেশনা এবং তথ্যভিত্তিক গাইড।",
   path: "/guides",
   keywords: [
-    "laptop buying guide bangladesh",
-    "best laptop in BD",
-    "laptop price in bangladesh",
-    "buy laptop online BD",
+    "অর্গানিক ফুড গাইড",
+    "সুন্দরবনের খাঁটি মধু",
+    "স্টাডি গাইড",
+    "ডিজিটাল শিট",
+    "প্রিজম বাজার",
   ],
 });
 
@@ -38,11 +39,10 @@ export default function GuidesPage() {
 
       <header className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Laptop Buying Guides for Bangladesh
+          প্রিজম বাজার প্রোডাক্ট ও স্টাডি গাইডলাইন
         </h1>
         <p className="mt-3 text-gray-600 max-w-3xl leading-relaxed">
-          Practical guides focused on Bangladeshi buyers: budget planning,
-          gaming decisions, student recommendations, and smarter online buying.
+          খাঁটি প্রাকৃতিক খাদ্যদ্রব্যের উপকারিতা এবং শিক্ষার্থীদের প্রস্তুতিকে সহজ করতে আমাদের তথ্যবহুল গাইডসমূহ পড়ুন।
         </p>
       </header>
 

@@ -36,7 +36,7 @@ export async function generateMetadata({
     title: guide.title,
     description: guide.description,
     path: `/guides/${guide.slug}`,
-    keywords: [guide.primaryKeyword, "laptop buying guide Bangladesh"],
+    keywords: [guide.primaryKeyword, "Prism Bazar Guides"],
   });
 }
 
@@ -61,7 +61,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
     path: `/guides/${guide.slug}`,
     datePublished: guide.publishedAt,
     dateModified: guide.updatedAt,
-    keywords: [guide.primaryKeyword, "laptop price in Bangladesh"],
+    keywords: [guide.primaryKeyword, "Prism Bazar Products"],
   });
 
   return (
@@ -126,11 +126,10 @@ export default async function GuidePage({ params }: GuidePageProps) {
 
         <section className="mt-8 rounded-xl border border-primary/25 bg-primary/5 p-6">
           <h2 className="text-xl font-semibold text-gray-900">
-            Explore More Laptop Content
+            প্রিজম বাজারের পণ্যসমূহ দেখুন
           </h2>
           <p className="text-gray-700 mt-2 leading-7">
-            Continue with our laptop price comparison and product listings to
-            shortlist models by budget, brand, and use case.
+            আমাদের খাঁটি অর্গানিক খাদ্য সামগ্রী এবং শিক্ষা সহায়িকা ও নোটের সম্পূর্ণ তালিকা থেকে আপনার পছন্দের পণ্যটি সহজে বেছে নিন।
           </p>
           <div className="flex flex-wrap gap-3 mt-4">
             <Link

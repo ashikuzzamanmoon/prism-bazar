@@ -114,7 +114,6 @@ const productSchema = z.object({
     "ORGANIC_FOOD",
     "EDUCATION_MATERIAL",
     "GENERAL",
-    "LAPTOP",
     "ACCESSORY",
   ]),
   typeId: z.string().optional(),
@@ -176,7 +175,6 @@ const TYPES = [
   "ORGANIC_FOOD",
   "EDUCATION_MATERIAL",
   "GENERAL",
-  "LAPTOP",
   "ACCESSORY",
 ] as const;
 
@@ -525,7 +523,7 @@ const CreateProduct = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="e.g. HP 250 G10 Laptop"
+                          placeholder="e.g. সুন্দরবনের খাঁটি মধু ৫০০ গ্রাম"
                           className="h-10"
                           {...field}
                         />
@@ -544,7 +542,7 @@ const CreateProduct = () => {
                       </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="hp-250-g10-laptop"
+                          placeholder="pure-sundarban-honey-500g"
                           className="h-10 bg-gray-50"
                           {...field}
                         />

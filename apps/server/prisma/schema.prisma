@@ -524,11 +524,10 @@ enum ProductCondition {
 }
 
 enum ProductType {
-  LAPTOP
-  ACCESSORY
   ORGANIC_FOOD
   EDUCATION_MATERIAL
   GENERAL
+  ACCESSORY
 }
 
 enum FeatureType {

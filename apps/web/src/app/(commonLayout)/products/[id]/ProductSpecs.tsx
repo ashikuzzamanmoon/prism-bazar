@@ -5,7 +5,7 @@ import Image from "next/image";
 import { IProductFeature } from "@/types/productTypes";
 import { Settings } from "lucide-react";
 
-export function LaptopSpecs({ features = [] }: { features?: IProductFeature[] }) {
+export function ProductSpecs({ features = [] }: { features?: IProductFeature[] }) {
     return (
         <div>
             <div className="mt-8 md:mt-12 lg:mt-12 border-t pt-8 md:pt-8">

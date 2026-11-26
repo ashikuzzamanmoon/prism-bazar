@@ -2,7 +2,6 @@ export type ProductType =
   | "ORGANIC_FOOD"
   | "EDUCATION_MATERIAL"
   | "GENERAL"
-  | "LAPTOP"
   | "ACCESSORY";
 
 export type ProductCondition =

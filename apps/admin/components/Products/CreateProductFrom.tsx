@@ -33,7 +33,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { laptopBrands } from "./brands-data";
+import { productBrands } from "./brands-data";
 import { useGetAllBrandsQuery } from "@/redux/Api/brandApi";
 import { ICategory } from "@/types/category.type";
 import { ISubCategory } from "@/types/sub.category.type";
@@ -96,7 +96,7 @@ type BrandOption = {
 };
 
 const productConditions = ["BRAND_NEW", "PRE_OWNED"];
-const productTypes = ["LAPTOP", "ACCESSORY"];
+const productTypes = ["ORGANIC_FOOD", "EDUCATION_MATERIAL", "GENERAL", "ACCESSORY"];
 
 const CreateProductPage = () => {
   const [formData, setFormData] = useState<ProductFormData>(initialFormData);
@@ -459,7 +459,7 @@ const CreateProductPage = () => {
                       <SelectValue placeholder="Select a brand" />
                     </SelectTrigger>
                     <SelectContent className=" min-h-24 overflow-y-auto">
-                      {laptopBrands.map((brand, index) => (
+                      {productBrands.map((brand, index) => (
                         <SelectItem key={index} value={brand}>
                           {brand}
                         </SelectItem>

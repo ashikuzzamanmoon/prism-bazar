@@ -175,7 +175,6 @@ const updateProductSchema = z.object({
     "ORGANIC_FOOD",
     "EDUCATION_MATERIAL",
     "GENERAL",
-    "LAPTOP",
     "ACCESSORY",
   ]).optional().default("ORGANIC_FOOD"),
   typeId: z.string().optional(),
@@ -222,7 +221,6 @@ const TYPES = [
   "ORGANIC_FOOD",
   "EDUCATION_MATERIAL",
   "GENERAL",
-  "LAPTOP",
   "ACCESSORY",
 ] as const;
 const FEATURE_TYPES = ["HIGHLIGHT", "SPECIFICATION"] as const;
@@ -586,8 +584,8 @@ const UpdateProduct = ({
       view: undefined, // ── NEW ──
       reviewsCount: undefined,
       inventoryQuantity: undefined,
-      condition: "BRAND_NEW",
-      type: "LAPTOP",
+      condition: "FRESH",
+      type: "ORGANIC_FOOD",
       categoryIds: [],
       subCategoryIds: [],
       collectionIds: [],
@@ -897,7 +895,7 @@ const UpdateProduct = ({
                           </FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="e.g. HP 250 G10 Laptop"
+                              placeholder="e.g. সুন্দরবনের খাঁটি মধু ৫০০ গ্রাম"
                               className="h-10"
                               {...field}
                             />
@@ -916,7 +914,7 @@ const UpdateProduct = ({
                           </FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="hp-250-g10-laptop"
+                              placeholder="pure-sundarban-honey-500g"
                               className="h-10 bg-gray-50"
                               {...field}
                             />

@@ -117,7 +117,7 @@ export class ProductsController {
     description: "New arrival products fetched successfully",
   })
   getNewArrivalProduct(
-    @Query("productType") productType: ProductType = ProductType.LAPTOP,
+    @Query("productType") productType?: ProductType,
   ) {
     return this.productsService.getNewArriveProduct();
   }

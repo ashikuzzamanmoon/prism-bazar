@@ -94,7 +94,7 @@ const CreateProductType = ({ refetch }: { refetch?: () => void }) => {
                 <FormItem>
                   <FormLabel>Name *</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g. Gaming Laptop" {...field} disabled={isSubmitting} />
+                    <Input placeholder="e.g. অর্গানিক খাদ্য সামগ্রী" {...field} disabled={isSubmitting} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
