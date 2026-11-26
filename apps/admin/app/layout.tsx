@@ -20,7 +20,10 @@ export const metadata: Metadata = {
   },
   description: "Prism Bazar Admin Portal - Organic Food & Education Materials",
   icons: {
-    icon: "/prism-bazar-icon.png",
+    icon: [
+      { url: "/prism-bazar-icon.png", type: "image/png" },
+      { url: "/prism-bazar-icon.svg", type: "image/svg+xml" },
+    ],
     shortcut: "/prism-bazar-icon.png",
     apple: "/prism-bazar-icon.png",
   },

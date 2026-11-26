@@ -30,9 +30,12 @@ export const metadata: Metadata = {
     template: "%s | Prism Bazar",
   },
   icons: {
-    icon: "/prism-bazar-icon.svg",
-    shortcut: "/prism-bazar-icon.svg",
-    apple: "/prism-bazar-icon.svg",
+    icon: [
+      { url: "/prism-bazar-icon.png", type: "image/png" },
+      { url: "/prism-bazar-icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/prism-bazar-icon.png",
+    apple: "/prism-bazar-icon.png",
   },
   authors: [{ name: "Prism Bazar Team" }],
 };
