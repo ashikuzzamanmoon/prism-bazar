@@ -737,10 +737,9 @@ export function ProductDetail({
           </div>
         </div>
       </div>
-      {/* {productData?.type === "LAPTOP" && (
-                <LaptopSpecs features={productData?.productFeatures} />
-            )} */}
-      <LaptopSpecs features={productData?.productFeatures} />
+      {productData?.productFeatures && productData.productFeatures.length > 0 && (
+        <LaptopSpecs features={productData?.productFeatures} />
+      )}
       <div className=" pt-8 border-t mt-8">
         <p className="text-gray-700 whitespace-pre-wrap">
           {productData?.description}

@@ -96,10 +96,10 @@ export default function RelevantProduct({
         <div className="flex justify-between items-center mb-3">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-primary ">
-              Relevant Product
+              Relevant Products
             </h2>
             <p className="text-gray-600 mt-1">
-              You might also like these high-performance laptops
+              আপনার পছন্দের আরও কিছু খাঁটি ও প্রয়োজনীয় পণ্য
             </p>
           </div>
         </div>

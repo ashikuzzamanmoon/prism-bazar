@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import {
   getProducts,
   getAllCollections,
@@ -112,35 +111,6 @@ async function ProductsPageContent({
               <SortDropdown activeSort={filters.sortByPrice} />
             </div>
           </div>
-
-          <section className="mb-6 rounded-xl border border-primary/20 bg-primary/5 p-4">
-            <h2 className="text-base md:text-lg font-semibold text-gray-900">
-              Popular Laptop Buying Guides
-            </h2>
-            <p className="text-sm text-gray-600 mt-1">
-              Compare by budget and use case before choosing your next laptop.
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Link
-                href="/guides/best-laptop-under-50000-in-bd"
-                className="text-sm px-3 py-1.5 rounded-md bg-white border border-gray-200 hover:border-primary hover:text-primary transition-colors"
-              >
-                Best Laptop Under 50000 in BD
-              </Link>
-              <Link
-                href="/guides/laptop-for-students-in-bangladesh"
-                className="text-sm px-3 py-1.5 rounded-md bg-white border border-gray-200 hover:border-primary hover:text-primary transition-colors"
-              >
-                Laptop for Students in Bangladesh
-              </Link>
-              <Link
-                href="/guides/gaming-laptop-buying-guide-bangladesh"
-                className="text-sm px-3 py-1.5 rounded-md bg-white border border-gray-200 hover:border-primary hover:text-primary transition-colors"
-              >
-                Gaming Laptop Buying Guide
-              </Link>
-            </div>
-          </section>
 
           <p className="text-sm text-gray-600 font-semibold mb-4">
             Showing {products?.length || 0} of{" "}
