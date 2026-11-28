@@ -387,9 +387,9 @@ const ManageProducts = () => {
                     <Badge
                       variant="outline"
                       className={
-                        item.condition === "BRAND_NEW"
+                        item.condition === "BRAND_NEW" || item.condition === "FRESH"
                           ? "border-green-200 text-green-700 bg-green-50 text-xs"
-                          : "border-orange-200 text-orange-700 bg-orange-50 text-xs"
+                          : "border-emerald-200 text-emerald-700 bg-emerald-50 text-xs"
                       }
                     >
                       {item.condition.replace("_", " ")}

@@ -208,8 +208,13 @@ const ViewProduct = ({
   };
 
   const conditionLabel: Record<string, string> = {
-    PRE_OWNED: "Pre-owned",
-    BRAND_NEW: "Brand New",
+    FRESH: "তাজা / খাঁটি (Fresh)",
+    PACKAGED: "প্যাকেটজাত (Packaged)",
+    HANDMADE: "হাতে তৈরি / ঘানিভাঙা (Handmade)",
+    PRINTED: "মুদ্রিত / প্রিন্টেড বই (Printed)",
+    DIGITAL: "ডিজিটাল শিট / PDF (Digital)",
+    BRAND_NEW: "নতুন (Brand New)",
+    PRE_OWNED: "স্ট্যান্ডার্ড",
   };
 
   // Safe accessors

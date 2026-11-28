@@ -159,7 +159,6 @@ const CONDITIONS = [
   "PRINTED",
   "DIGITAL",
   "BRAND_NEW",
-  "PRE_OWNED",
 ] as const;
 
 const CONDITION_LABELS: Record<string, string> = {
@@ -169,7 +168,6 @@ const CONDITION_LABELS: Record<string, string> = {
   PRINTED: "মুদ্রিত / প্রিন্টেড বই (Printed)",
   DIGITAL: "ডিজিটাল শিট / PDF (Digital)",
   BRAND_NEW: "নতুন (Brand New)",
-  PRE_OWNED: "ব্যবহৃত (Pre-Owned)",
 };
 const TYPES = [
   "ORGANIC_FOOD",
