@@ -176,6 +176,12 @@ const updateProductSchema = z.object({
     "ACCESSORY",
   ]).optional().default("ORGANIC_FOOD"),
   typeId: z.string().optional(),
+  isDigital: z.boolean().default(false),
+  author: z.string().optional(),
+  publisher: z.string().optional(),
+  ingredients: z.string().optional(),
+  nutritionInfo: z.string().optional(),
+  expiryDate: z.string().optional(),
   categoryIds: z.array(z.string()).min(1, "Select at least one category"),
   subCategoryIds: z.array(z.string()).optional(),
   collectionIds: z.array(z.string()).optional(),
@@ -597,6 +603,7 @@ const UpdateProduct = ({
   // ── Watch dependent IDs ──
   const selectedCollectionIds = watch("collectionIds") ?? [];
   const selectedCategoryIds = watch("categoryIds") ?? [];
+  const selectedProductType = watch("type") || "ORGANIC_FOOD";
   const titleValue = watch("title");
 
   // ── Queries ──
@@ -679,6 +686,12 @@ const UpdateProduct = ({
         condition: (productData.condition as any) ?? "FRESH",
         type: (productData.type as any) ?? "ORGANIC_FOOD",
         typeId: productData.typeId ?? "",
+        isDigital: Boolean((productData as any).isDigital),
+        author: (productData as any).author ?? "",
+        publisher: (productData as any).publisher ?? "",
+        ingredients: (productData as any).ingredients ?? "",
+        nutritionInfo: (productData as any).nutritionInfo ?? "",
+        expiryDate: (productData as any).expiryDate ? String((productData as any).expiryDate) : "",
         collectionIds,
         categoryIds,
         subCategoryIds,
@@ -828,6 +841,12 @@ const UpdateProduct = ({
         condition: values.condition,
         type: values.type,
         typeId: values.typeId || undefined,
+        isDigital: values.isDigital || false,
+        author: values.author || undefined,
+        publisher: values.publisher || undefined,
+        ingredients: values.ingredients || undefined,
+        nutritionInfo: values.nutritionInfo || undefined,
+        expiryDate: values.expiryDate || undefined,
         isPublish: values.isPublish,
         features: values.features,
         inventory: { quantity: values.inventoryQuantity },
@@ -1012,6 +1031,103 @@ const UpdateProduct = ({
                       )}
                     />
                   </div>
+
+                  {/* Dynamic Education Details */}
+                  {selectedProductType === "EDUCATION_MATERIAL" && (
+                    <div className="space-y-4 p-4 bg-amber-50/50 rounded-lg border border-amber-200/60">
+                      <FormField
+                        control={control}
+                        name="isDigital"
+                        render={({ field }) => (
+                          <FormItem className="flex items-center justify-between rounded-lg border p-3 shadow-sm bg-white">
+                            <div className="space-y-0.5">
+                              <FormLabel className="text-sm font-medium text-gray-700">ডিজিটাল সংস্করণ (PDF)</FormLabel>
+                              <p className="text-xs text-gray-500">অনলাইন ডাউনলোডযোগ্য ফাইল হলে চালু করুন</p>
+                            </div>
+                            <FormControl>
+                              <Switch
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FormField
+                          control={control}
+                          name="author"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-sm font-medium text-gray-700">লেখক / সংকলক (Author)</FormLabel>
+                              <FormControl>
+                                <Input placeholder="যেমন: ড. মুহাম্মদ জাফর ইকবাল" {...field} />
+                              </FormControl>
+                              <FormMessage className="text-xs text-red-500" />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={control}
+                          name="publisher"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-sm font-medium text-gray-700">প্রকাশক / প্রতিষ্ঠান (Publisher)</FormLabel>
+                              <FormControl>
+                                <Input placeholder="যেমন: অনুপম প্রকাশনী" {...field} />
+                              </FormControl>
+                              <FormMessage className="text-xs text-red-500" />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Dynamic Organic Food Details */}
+                  {selectedProductType !== "EDUCATION_MATERIAL" && (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-emerald-50/50 rounded-lg border border-emerald-200/60">
+                      <FormField
+                        control={control}
+                        name="ingredients"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium text-gray-700">উপাদান (Ingredients)</FormLabel>
+                            <FormControl>
+                              <Input placeholder="যেমন: খাঁটি সরিষা বীজ" {...field} />
+                            </FormControl>
+                            <FormMessage className="text-xs text-red-500" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={control}
+                        name="nutritionInfo"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium text-gray-700">পুষ্টিগুণ (Nutrition)</FormLabel>
+                            <FormControl>
+                              <Input placeholder="যেমন: ভিটামিন ই, ওমেগা ৩" {...field} />
+                            </FormControl>
+                            <FormMessage className="text-xs text-red-500" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={control}
+                        name="expiryDate"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-medium text-gray-700">মেয়াদ / Best Before</FormLabel>
+                            <FormControl>
+                              <Input placeholder="যেমন: উৎপাদন হতে ৬ মাস" {...field} />
+                            </FormControl>
+                            <FormMessage className="text-xs text-red-500" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  )}
 
                   <FormField
                     control={control}

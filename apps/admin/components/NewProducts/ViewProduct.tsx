@@ -424,78 +424,104 @@ const ViewProduct = ({
             </div>
 
             {/* Organic & Education Specifications */}
-            {(productData.ingredients ||
-              productData.nutritionInfo ||
-              productData.author ||
-              productData.publisher ||
-              productData.isDigital !== undefined ||
-              productData.expiryDate) && (
-              <div className="space-y-2 sm:space-y-3">
-                <SectionTitle>Product Specifications (অর্গানিক ও শিক্ষা তথ্য)</SectionTitle>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {productData.ingredients && (
-                    <div className="p-2 sm:p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
-                      <span className="text-[10px] sm:text-xs text-emerald-800 font-bold block mb-1">
-                        🌿 উপাদান (Ingredients)
-                      </span>
-                      <span className="text-xs sm:text-sm text-gray-800 font-medium">
-                        {productData.ingredients}
-                      </span>
-                    </div>
-                  )}
-                  {productData.nutritionInfo && (
-                    <div className="p-2 sm:p-3 rounded-lg border border-amber-100 bg-amber-50/50">
-                      <span className="text-[10px] sm:text-xs text-amber-800 font-bold block mb-1">
-                        🍎 পুষ্টিগুণ (Nutrition)
-                      </span>
-                      <span className="text-xs sm:text-sm text-gray-800 font-medium">
-                        {productData.nutritionInfo}
-                      </span>
-                    </div>
-                  )}
-                  {productData.author && (
-                    <div className="p-2 sm:p-3 rounded-lg border border-blue-100 bg-blue-50/50">
-                      <span className="text-[10px] sm:text-xs text-blue-800 font-bold block mb-1">
-                        ✍️ লেখক / সংকলক
-                      </span>
-                      <span className="text-xs sm:text-sm text-gray-800 font-medium">
-                        {productData.author}
-                      </span>
-                    </div>
-                  )}
-                  {productData.publisher && (
-                    <div className="p-2 sm:p-3 rounded-lg border border-indigo-100 bg-indigo-50/50">
-                      <span className="text-[10px] sm:text-xs text-indigo-800 font-bold block mb-1">
-                        🏢 প্রকাশক / প্রতিষ্ঠান
-                      </span>
-                      <span className="text-xs sm:text-sm text-gray-800 font-medium">
-                        {productData.publisher}
-                      </span>
-                    </div>
-                  )}
-                  {productData.isDigital !== undefined && (
-                    <div className="p-2 sm:p-3 rounded-lg border border-purple-100 bg-purple-50/50">
-                      <span className="text-[10px] sm:text-xs text-purple-800 font-bold block mb-1">
-                        📱 সংস্করণ
-                      </span>
-                      <span className="text-xs sm:text-sm text-gray-800 font-medium">
-                        {productData.isDigital ? "ডিজিটাল (PDF ডাউনলোড)" : "মুদ্রিত সংস্করণ"}
-                      </span>
-                    </div>
-                  )}
-                  {productData.expiryDate && (
-                    <div className="p-2 sm:p-3 rounded-lg border border-gray-200 bg-gray-50">
-                      <span className="text-[10px] sm:text-xs text-gray-600 font-bold block mb-1">
-                        ⏳ মেয়াদ / উপযোগিতা
-                      </span>
-                      <span className="text-xs sm:text-sm text-gray-800 font-medium">
-                        {productData.expiryDate}
-                      </span>
-                    </div>
-                  )}
+            {(() => {
+              const isEducationProduct =
+                productData.type === "EDUCATION_MATERIAL" ||
+                Boolean(productData.author) ||
+                Boolean(productData.publisher);
+              const isOrganicProduct =
+                productData.type === "ORGANIC_FOOD" ||
+                Boolean(productData.ingredients) ||
+                Boolean(productData.nutritionInfo) ||
+                Boolean(productData.expiryDate);
+
+              if (
+                !productData.ingredients &&
+                !productData.nutritionInfo &&
+                !productData.author &&
+                !productData.publisher &&
+                !(isEducationProduct && productData.isDigital !== undefined) &&
+                !productData.expiryDate
+              ) {
+                return null;
+              }
+
+              return (
+                <div className="space-y-2 sm:space-y-3">
+                  <SectionTitle>Product Specifications (অর্গানিক ও শিক্ষা তথ্য)</SectionTitle>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {productData.ingredients && (
+                      <div className="p-2 sm:p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
+                        <span className="text-[10px] sm:text-xs text-emerald-800 font-bold block mb-1">
+                          🌿 উপাদান (Ingredients)
+                        </span>
+                        <span className="text-xs sm:text-sm text-gray-800 font-medium">
+                          {productData.ingredients}
+                        </span>
+                      </div>
+                    )}
+                    {productData.nutritionInfo && (
+                      <div className="p-2 sm:p-3 rounded-lg border border-amber-100 bg-amber-50/50">
+                        <span className="text-[10px] sm:text-xs text-amber-800 font-bold block mb-1">
+                          🍎 পুষ্টিগুণ (Nutrition)
+                        </span>
+                        <span className="text-xs sm:text-sm text-gray-800 font-medium">
+                          {productData.nutritionInfo}
+                        </span>
+                      </div>
+                    )}
+                    {isEducationProduct && productData.author && (
+                      <div className="p-2 sm:p-3 rounded-lg border border-blue-100 bg-blue-50/50">
+                        <span className="text-[10px] sm:text-xs text-blue-800 font-bold block mb-1">
+                          ✍️ লেখক / সংকলক
+                        </span>
+                        <span className="text-xs sm:text-sm text-gray-800 font-medium">
+                          {productData.author}
+                        </span>
+                      </div>
+                    )}
+                    {isEducationProduct && productData.publisher && (
+                      <div className="p-2 sm:p-3 rounded-lg border border-indigo-100 bg-indigo-50/50">
+                        <span className="text-[10px] sm:text-xs text-indigo-800 font-bold block mb-1">
+                          🏢 প্রকাশক / প্রতিষ্ঠান
+                        </span>
+                        <span className="text-xs sm:text-sm text-gray-800 font-medium">
+                          {productData.publisher}
+                        </span>
+                      </div>
+                    )}
+                    {isEducationProduct && (
+                      <div className="p-2 sm:p-3 rounded-lg border border-purple-100 bg-purple-50/50">
+                        <span className="text-[10px] sm:text-xs text-purple-800 font-bold block mb-1">
+                          📱 বইয়ের সংস্করণ
+                        </span>
+                        <span className="text-xs sm:text-sm text-gray-800 font-medium">
+                          {productData.isDigital ? "ডিজিটাল (PDF ডাউনলোড)" : "মুদ্রিত সংস্করণ (বই)"}
+                        </span>
+                      </div>
+                    )}
+                    {productData.expiryDate && (
+                      <div className="p-2 sm:p-3 rounded-lg border border-gray-200 bg-gray-50">
+                        <span className="text-[10px] sm:text-xs text-gray-600 font-bold block mb-1">
+                          ⏳ মেয়াদ / উপযোগিতা
+                        </span>
+                        <span className="text-xs sm:text-sm text-gray-800 font-medium">
+                          {(() => {
+                            try {
+                              const d = new Date(productData.expiryDate);
+                              if (!isNaN(d.getTime())) {
+                                return d.toLocaleDateString("bn-BD", { year: "numeric", month: "long", day: "numeric" });
+                              }
+                            } catch {}
+                            return String(productData.expiryDate);
+                          })()}
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* Quick Features */}
             {features.length > 0 && (

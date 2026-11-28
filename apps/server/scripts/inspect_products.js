@@ -7,11 +7,19 @@ async function inspect() {
   await client.connect();
   
   const prodsRes = await client.query(`
-    SELECT id, slug, title, price, "basePrice", discount, "brandId", "isDigital",
-           author, publisher, ingredients, "nutritionInfo", "expiryDate", description
+    SELECT id, slug, title, type, condition, "isDigital",
+           author, publisher, ingredients, "nutritionInfo", "expiryDate"
     FROM "Product"
     ORDER BY "createdAt" ASC;
   `);
+  console.table(prodsRes.rows.map(p => ({
+    slug: p.slug,
+    type: p.type,
+    condition: p.condition,
+    isDigital: p.isDigital,
+    author: p.author,
+    publisher: p.publisher
+  })));
   
   console.log('=== PRODUCTS (' + prodsRes.rows.length + ') ===');
   for (const p of prodsRes.rows) {

@@ -337,6 +337,7 @@ const CreateProduct = () => {
   // ── Watch dependent IDs ──
   const selectedCollectionIds = watch("collectionIds") ?? [];
   const selectedCategoryIds = watch("categoryIds") ?? [];
+  const selectedProductType = watch("type") || "ORGANIC_FOOD";
 
   // ── Queries ──
   const { data: brandsRes } = useGetAllQueryBrandQuery({});
@@ -673,98 +674,104 @@ const CreateProduct = () => {
                   )}
                 />
 
-                <FormField
-                  control={control}
-                  name="isDigital"
-                  render={({ field }) => (
-                    <FormItem className="flex items-center justify-between rounded-lg border p-3 shadow-sm bg-blue-50/30">
-                      <div className="space-y-0.5">
-                        <FormLabel className="text-sm font-medium text-gray-700">ডিজিটাল সংস্করণ (PDF)</FormLabel>
-                        <p className="text-xs text-gray-500">অনলাইন ডাউনলোডযোগ্য ফাইল হলে চালু করুন</p>
-                      </div>
-                      <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
+                {selectedProductType === "EDUCATION_MATERIAL" && (
+                  <FormField
+                    control={control}
+                    name="isDigital"
+                    render={({ field }) => (
+                      <FormItem className="flex items-center justify-between rounded-lg border p-3 shadow-sm bg-blue-50/30">
+                        <div className="space-y-0.5">
+                          <FormLabel className="text-sm font-medium text-gray-700">ডিজিটাল সংস্করণ (PDF)</FormLabel>
+                          <p className="text-xs text-gray-500">অনলাইন ডাউনলোডযোগ্য ফাইল হলে চালু করুন</p>
+                        </div>
+                        <FormControl>
+                          <Switch
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                )}
               </div>
 
               {/* Specifics for Education */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-amber-50/50 rounded-lg border border-amber-200/60">
-                <FormField
-                  control={control}
-                  name="author"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-700">লেখক / সংকলক (Author)</FormLabel>
-                      <FormControl>
-                        <Input placeholder="যেমন: ড. মুহাম্মদ জাফর ইকবাল" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={control}
-                  name="publisher"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-700">প্রকাশক / প্রতিষ্ঠান (Publisher)</FormLabel>
-                      <FormControl>
-                        <Input placeholder="যেমন: অনুপম প্রকাশনী" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-              </div>
+              {selectedProductType === "EDUCATION_MATERIAL" && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-amber-50/50 rounded-lg border border-amber-200/60">
+                  <FormField
+                    control={control}
+                    name="author"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-gray-700">লেখক / সংকলক (Author)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="যেমন: ড. মুহাম্মদ জাফর ইকবাল" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={control}
+                    name="publisher"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-gray-700">প্রকাশক / প্রতিষ্ঠান (Publisher)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="যেমন: অনুপম প্রকাশনী" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              )}
 
               {/* Specifics for Food */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-emerald-50/50 rounded-lg border border-emerald-200/60">
-                <FormField
-                  control={control}
-                  name="ingredients"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-700">উপাদান (Ingredients)</FormLabel>
-                      <FormControl>
-                        <Input placeholder="যেমন: খাঁটি সরিষা বীজ" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={control}
-                  name="nutritionInfo"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-700">পুষ্টিগুণ (Nutrition)</FormLabel>
-                      <FormControl>
-                        <Input placeholder="যেমন: ভিটামিন ই, ওমেগা ৩" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={control}
-                  name="expiryDate"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-gray-700">মেয়াদ / Best Before</FormLabel>
-                      <FormControl>
-                        <Input placeholder="যেমন: উৎপাদন হতে ৬ মাস" {...field} />
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-500" />
-                    </FormItem>
-                  )}
-                />
-              </div>
+              {selectedProductType !== "EDUCATION_MATERIAL" && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-emerald-50/50 rounded-lg border border-emerald-200/60">
+                  <FormField
+                    control={control}
+                    name="ingredients"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-gray-700">উপাদান (Ingredients)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="যেমন: খাঁটি সরিষা বীজ" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={control}
+                    name="nutritionInfo"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-gray-700">পুষ্টিগুণ (Nutrition)</FormLabel>
+                        <FormControl>
+                          <Input placeholder="যেমন: ভিটামিন ই, ওমেগা ৩" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={control}
+                    name="expiryDate"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-sm font-medium text-gray-700">মেয়াদ / Best Before</FormLabel>
+                        <FormControl>
+                          <Input placeholder="যেমন: উৎপাদন হতে ৬ মাস" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-xs text-red-500" />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              )}
 
               {/* Description */}
               <FormField

@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   FileText,
   Building2,
+  Calendar,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
@@ -179,6 +180,15 @@ export function ProductDetail({
   }
 
   const isDigital = Boolean(productData?.isDigital);
+  const isEducationProduct =
+    productData?.type === "EDUCATION_MATERIAL" ||
+    Boolean(productData?.author) ||
+    Boolean(productData?.publisher);
+  const isOrganicProduct =
+    productData?.type === "ORGANIC_FOOD" ||
+    Boolean(productData?.ingredients) ||
+    Boolean(productData?.nutritionInfo) ||
+    Boolean(productData?.expiryDate);
 
   // If we have selected a color, only consider that color's stock
   const availableStock = isDigital
@@ -556,7 +566,7 @@ export function ProductDetail({
             )}
 
             {/* Book / Education Specific Details */}
-            {(productData.author || productData.publisher || productData.isDigital !== undefined) && (
+            {isEducationProduct && (
               <div className="mb-5 p-3.5 bg-gradient-to-br from-amber-50/80 to-orange-50/40 border border-amber-200/70 rounded-xl text-xs md:text-sm space-y-2">
                 {productData.author && (
                   <p className="text-gray-800 leading-relaxed">
@@ -570,14 +580,12 @@ export function ProductDetail({
                     {productData.publisher}
                   </p>
                 )}
-                {productData.isDigital !== undefined && (
-                  <p className="text-gray-800 leading-relaxed">
-                    <span className="font-bold text-amber-900">📚 সংস্করণ / ফরম্যাট:</span>{" "}
-                    {productData.isDigital
-                      ? "ডিজিটাল সংস্করণ (PDF ফাইল ডাউনলোড)"
-                      : "মুদ্রিত সংস্করণ (প্রিন্ট কপি)"}
-                  </p>
-                )}
+                <p className="text-gray-800 leading-relaxed">
+                  <span className="font-bold text-amber-900">📚 সংস্করণ / ফরম্যাট:</span>{" "}
+                  {productData.isDigital
+                    ? "ডিজিটাল সংস্করণ (PDF ফাইল ডাউনলোড)"
+                    : "মুদ্রিত বই (হার্ডকপি সংস্করণ)"}
+                </p>
               </div>
             )}
 
@@ -739,9 +747,8 @@ export function ProductDetail({
       {/* Specifications & Details (Organic Food / Education Materials) */}
       {(productData?.ingredients ||
         productData?.nutritionInfo ||
-        productData?.author ||
-        productData?.publisher ||
-        productData?.isDigital !== undefined ||
+        productData?.expiryDate ||
+        (isEducationProduct && (productData?.author || productData?.publisher || productData?.isDigital !== undefined)) ||
         productData?.brand?.title) && (
         <div className="mt-8 border border-gray-100 rounded-2xl p-6 bg-white shadow-xs">
           <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-5 pb-3 border-b border-gray-100">
@@ -771,7 +778,41 @@ export function ProductDetail({
                 </p>
               </div>
             )}
-            {productData.author && (
+            {productData.expiryDate && (
+              <div className="p-4 rounded-xl bg-teal-50/50 border border-teal-100/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-teal-800 uppercase tracking-wider mb-1.5">
+                  <Calendar className="w-4 h-4 text-teal-600" />
+                  <span>মেয়াদ / ব্যবহারযোগ্যতা (Best Before)</span>
+                </div>
+                <p className="text-sm text-gray-800 font-medium leading-relaxed">
+                  {(() => {
+                    try {
+                      const d = new Date(productData.expiryDate);
+                      if (!isNaN(d.getTime())) {
+                        return d.toLocaleDateString("bn-BD", { year: "numeric", month: "long", day: "numeric" });
+                      }
+                    } catch {}
+                    return String(productData.expiryDate);
+                  })()}
+                </p>
+              </div>
+            )}
+            {isOrganicProduct && (
+              <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1.5">
+                  <Leaf className="w-4 h-4 text-emerald-600" />
+                  <span>পণ্যের অবস্থা ও প্যাকেজিং</span>
+                </div>
+                <p className="text-sm text-gray-800 font-medium leading-relaxed">
+                  {productData.condition === "FRESH"
+                    ? "টাটকা ও নির্ভেজাল (Fresh & Pure)"
+                    : productData.condition === "PACKAGED"
+                    ? "প্রিমিয়াম বোতলজাত / বায়ুরোধী প্যাকেটজাত"
+                    : "১০০% প্রাকৃতিক ও নিরাপদ খাদ্য"}
+                </p>
+              </div>
+            )}
+            {isEducationProduct && productData.author && (
               <div className="p-4 rounded-xl bg-blue-50/50 border border-blue-100/80">
                 <div className="flex items-center gap-2 text-xs font-bold text-blue-800 uppercase tracking-wider mb-1.5">
                   <BookOpen className="w-4 h-4 text-blue-600" />
@@ -782,7 +823,7 @@ export function ProductDetail({
                 </p>
               </div>
             )}
-            {productData.publisher && (
+            {isEducationProduct && productData.publisher && (
               <div className="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100/80">
                 <div className="flex items-center gap-2 text-xs font-bold text-indigo-800 uppercase tracking-wider mb-1.5">
                   <Building2 className="w-4 h-4 text-indigo-600" />
@@ -793,11 +834,11 @@ export function ProductDetail({
                 </p>
               </div>
             )}
-            {productData.isDigital !== undefined && (
+            {isEducationProduct && (
               <div className="p-4 rounded-xl bg-purple-50/50 border border-purple-100/80">
                 <div className="flex items-center gap-2 text-xs font-bold text-purple-800 uppercase tracking-wider mb-1.5">
                   <FileText className="w-4 h-4 text-purple-600" />
-                  <span>পণ্যের ধরন / ফরম্যাট</span>
+                  <span>বইয়ের সংস্করণ / ফরম্যাট</span>
                 </div>
                 <p className="text-sm text-gray-800 font-medium leading-relaxed">
                   {productData.isDigital
