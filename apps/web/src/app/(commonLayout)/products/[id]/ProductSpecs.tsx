@@ -6,6 +6,8 @@ import { IProductFeature } from "@/types/productTypes";
 import { Settings } from "lucide-react";
 
 export function ProductSpecs({ features = [] }: { features?: IProductFeature[] }) {
+    if (!features || features.length === 0) return null;
+
     return (
         <div>
             <div className="mt-8 md:mt-12 lg:mt-12 border-t pt-8 md:pt-8">

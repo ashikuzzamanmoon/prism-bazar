@@ -514,68 +514,68 @@ export function ProductDetail({
             </div>
 
             {/* Regional Delivery Promise */}
-            <div className="mb-4 flex items-center gap-2 p-2.5 bg-green-50 rounded-lg border border-green-200 text-xs md:text-sm text-green-800 font-medium">
+            <div className="mb-4 flex items-center gap-2 p-2.5 bg-emerald-50/80 rounded-xl border border-emerald-200/80 text-xs md:text-sm text-emerald-900 font-medium">
               <span className="text-base">🚚</span>
               <span>সিরাজগঞ্জ ও কাজিপুরে দ্রুত হোম ডেলিভারি এবং সারা দেশে কুরিয়ার সার্ভিস।</span>
             </div>
 
-            {/* Book / Education Specific Details */}
-            {(productData.author || productData.publisher) && (
-              <div className="mb-4 p-3 bg-amber-50/70 border border-amber-200/60 rounded-lg text-sm space-y-1">
-                {productData.author && (
-                  <p className="text-gray-800">
-                    <span className="font-semibold text-amber-900">লেখক / সংকলক:</span> {productData.author}
-                  </p>
-                )}
-                {productData.publisher && (
-                  <p className="text-gray-800">
-                    <span className="font-semibold text-amber-900">প্রকাশক / প্রতিষ্ঠান:</span> {productData.publisher}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {/* Organic Food Specific Details */}
+            {/* Organic Food Essentials */}
             {(productData.ingredients || productData.nutritionInfo || productData.expiryDate) && (
-              <div className="mb-4 p-3 bg-emerald-50/70 border border-emerald-200/60 rounded-lg text-sm space-y-1">
+              <div className="mb-5 p-3.5 bg-gradient-to-br from-emerald-50/80 to-teal-50/50 border border-emerald-200/70 rounded-xl text-xs md:text-sm space-y-2">
                 {productData.ingredients && (
-                  <p className="text-gray-800">
-                    <span className="font-semibold text-emerald-900">উপাদান (Ingredients):</span> {productData.ingredients}
+                  <p className="text-gray-800 leading-relaxed">
+                    <span className="font-bold text-emerald-900">🌿 উপাদান (Ingredients):</span>{" "}
+                    {productData.ingredients}
                   </p>
                 )}
                 {productData.nutritionInfo && (
-                  <p className="text-gray-800">
-                    <span className="font-semibold text-emerald-900">পুষ্টিগুণ:</span> {productData.nutritionInfo}
+                  <p className="text-gray-800 leading-relaxed">
+                    <span className="font-bold text-emerald-900">🍎 পুষ্টিগুণ:</span>{" "}
+                    {productData.nutritionInfo}
                   </p>
                 )}
                 {productData.expiryDate && (
-                  <p className="text-gray-800">
-                    <span className="font-semibold text-emerald-900">মেয়াদ / উপযোগিতা:</span> {productData.expiryDate}
+                  <p className="text-gray-800 leading-relaxed">
+                    <span className="font-bold text-emerald-900">⏳ মেয়াদ / উপযোগিতা:</span>{" "}
+                    {(() => {
+                      try {
+                        const d = new Date(productData.expiryDate);
+                        if (!isNaN(d.getTime())) {
+                          return d.toLocaleDateString("bn-BD", { year: "numeric", month: "long", day: "numeric" });
+                        }
+                      } catch {}
+                      return String(productData.expiryDate);
+                    })()}
                   </p>
                 )}
               </div>
             )}
 
-            <div className="mb-6">
-              <h3 className="font-semibold mb-2">Features:</h3>
-              {productData.features && productData.features.length > 0 ? (
-                <ul className="space-y-1 text-gray-700">
-                  {productData.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className="relative pl-5 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:bg-primary"
-                    >
-                      <span className="font-medium">{feature.key}:</span>{" "}
-                      {feature.value}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="py-12 text-center italic bg-red-50 text-red-500">
-                  No features available.
-                </p>
-              )}
-            </div>
+            {/* Book / Education Specific Details */}
+            {(productData.author || productData.publisher || productData.isDigital !== undefined) && (
+              <div className="mb-5 p-3.5 bg-gradient-to-br from-amber-50/80 to-orange-50/40 border border-amber-200/70 rounded-xl text-xs md:text-sm space-y-2">
+                {productData.author && (
+                  <p className="text-gray-800 leading-relaxed">
+                    <span className="font-bold text-amber-900">✍️ লেখক / সংকলক:</span>{" "}
+                    {productData.author}
+                  </p>
+                )}
+                {productData.publisher && (
+                  <p className="text-gray-800 leading-relaxed">
+                    <span className="font-bold text-amber-900">🏢 প্রকাশক / প্রতিষ্ঠান:</span>{" "}
+                    {productData.publisher}
+                  </p>
+                )}
+                {productData.isDigital !== undefined && (
+                  <p className="text-gray-800 leading-relaxed">
+                    <span className="font-bold text-amber-900">📚 সংস্করণ / ফরম্যাট:</span>{" "}
+                    {productData.isDigital
+                      ? "ডিজিটাল সংস্করণ (PDF ফাইল ডাউনলোড)"
+                      : "মুদ্রিত সংস্করণ (প্রিন্ট কপি)"}
+                  </p>
+                )}
+              </div>
+            )}
 
             {/* Variant Selection: Colors */}
             {productData.productColors &&
@@ -731,68 +731,6 @@ export function ProductDetail({
           </div>
         </div>
       </div>
-      {/* Product Highlights / Key Features */}
-      {(() => {
-        const raw = productData?.features as unknown as
-          | Array<string | { key?: string; value?: string }>
-          | string
-          | undefined;
-        let items: string[] = [];
-        if (Array.isArray(raw)) {
-          items = raw
-            .map((item) => {
-              if (typeof item === "string") return item;
-              if (item && typeof item === "object") {
-                return item.value
-                  ? `${item.key ? `${item.key}: ` : ""}${item.value}`
-                  : item.key || "";
-              }
-              return String(item);
-            })
-            .filter(Boolean);
-        } else if (typeof raw === "string") {
-          try {
-            const parsed = JSON.parse(raw);
-            if (Array.isArray(parsed)) {
-              items = parsed
-                .map((item) => {
-                  if (typeof item === "string") return item;
-                  if (item && typeof item === "object") {
-                    return item.value
-                      ? `${item.key ? `${item.key}: ` : ""}${item.value}`
-                      : item.key || "";
-                  }
-                  return String(item);
-                })
-                .filter(Boolean);
-            }
-          } catch {
-            items = [];
-          }
-        }
-
-        if (items.length === 0) return null;
-
-        return (
-          <div className="mt-8 p-6 bg-gradient-to-r from-emerald-50/70 via-teal-50/40 to-emerald-50/70 border border-emerald-100 rounded-2xl">
-            <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4">
-              <Sparkles className="w-5 h-5 text-emerald-600" />
-              <span>পণ্যের বিশেষ সুবিধাসমূহ ও বৈশিষ্ট্য</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {items.map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-2.5 text-sm text-gray-800 bg-white/85 p-3 rounded-xl border border-emerald-100/60 shadow-xs"
-                >
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="font-medium leading-relaxed">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
 
       {/* Specifications & Details (Organic Food / Education Materials) */}
       {(productData?.ingredients ||

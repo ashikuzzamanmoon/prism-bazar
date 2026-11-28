@@ -463,35 +463,6 @@ const ManageProducts = () => {
                           Update Variant
                         </DropdownMenuItem>
 
-                        <DropdownMenuItem
-                          onClick={() => {
-                            setSelectedProduct(item);
-                            setOpenMainFeatureSortingModal(true);
-                          }}
-                        >
-                          <Edit className="mr-2 h-4 w-4" />
-                          Main Features Sorting
-                        </DropdownMenuItem>
-
-                        <DropdownMenuItem
-                          onClick={() => {
-                            setSelectedProduct(item);
-                            setOpenFeatureSortingModal(true);
-                          }}
-                        >
-                          <Edit className="mr-2 h-4 w-4" />
-                          Product Features Sorting
-                        </DropdownMenuItem>
-
-                        <DropdownMenuItem
-                          onClick={() => {
-                            setSelectedProduct(item);
-                            setOpenFeatureItemSortingModal(true);
-                          }}
-                        >
-                          <Edit className="mr-2 h-4 w-4" />
-                          Features From Product Feature
-                        </DropdownMenuItem>
 
                         <DropdownMenuItem
                           onClick={() =>
