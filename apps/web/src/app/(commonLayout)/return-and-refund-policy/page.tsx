@@ -271,7 +271,7 @@ const ShippingPolicyPage = () => {
             <div className="flex-1 pt-6 md:pt-0 border-t md:border-t-0 border-border">
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest text-primary/80 block mb-2">Office Address</span>
               <p className="text-foreground leading-relaxed text-base font-medium">
-                কাজীপুর, সিরাজগঞ্জ,
+                আলামপুর চৌরাস্তা, কাজীপুর, সিরাজগঞ্জ,
                 <br />
                 রাজশাহী বিভাগ, বাংলাদেশ
               </p>

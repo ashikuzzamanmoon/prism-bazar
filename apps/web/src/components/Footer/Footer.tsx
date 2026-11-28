@@ -140,7 +140,7 @@ export default function Footer() {
                                     <MapPin className="w-5 h-5 text-[#ff7200]" />
                                 </div>
                                 <span className="text-gray-600 text-[14px] leading-relaxed pt-1">
-                                    <strong className="text-gray-800 block mb-0.5">কাজীপুর, সিরাজগঞ্জ</strong>
+                                    <strong className="text-gray-800 block mb-0.5">আলামপুর চৌরাস্তা, কাজীপুর</strong>
                                     সিরাজগঞ্জ, বাংলাদেশ
                                 </span>
                             </div>

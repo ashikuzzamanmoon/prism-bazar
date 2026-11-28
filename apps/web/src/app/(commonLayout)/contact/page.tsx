@@ -148,8 +148,8 @@ const ContactPage = () => {
                     <div className="pt-1">
                       <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Our Office</h3>
                       <p className="text-slate-800 font-medium leading-relaxed text-lg">
-                        কাজীপুর, সিরাজগঞ্জ,<br />
-                        রাজশাহী বিভাগ, বাংলাদেশ
+                        আলামপুর চৌরাস্তা, কাজীপুর,<br />
+                        সিরাজগঞ্জ, বাংলাদেশ
                       </p>
                     </div>
                   </div>
@@ -293,13 +293,13 @@ const ContactPage = () => {
               <MapPin className="w-8 h-8 text-primary" />
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Visit Our Store</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Experience our premium tech products in person. Get expert advice directly from our tech specialists.</p>
+            <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">আমাদের শোরুম বা অফিসে সরাসরি এসে খাঁটি অর্গানিক খাদ্যদ্রব্য ও শিক্ষা সামগ্রী সংগ্রহ করুন।</p>
           </div>
 
           <div className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-[6px] border-white bg-slate-100 group">
             <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none"></div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14500.472845611812!2d90.3907697!3d23.7511832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9007ebaf311%3A0xef2fcb8f2181add8!2sPrism Bazar!5e0!3m2!1sen!2sbd!4v1693658391234!5m2!1sen!2sbd"
+              src="https://maps.google.com/maps?q=Alampur+Chowrasta,+Kazipur,+Sirajganj&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, filter: 'contrast(1.05) saturate(1.1)' }}
@@ -317,7 +317,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="font-bold text-slate-900 tracking-tight">Prism Bazar</p>
-                  <p className="text-sm font-medium text-slate-500">কাজীপুর, সিরাজগঞ্জ</p>
+                  <p className="text-sm font-medium text-slate-500">আলামপুর চৌরাস্তা, কাজীপুর, সিরাজগঞ্জ</p>
                 </div>
               </div>
             </div>

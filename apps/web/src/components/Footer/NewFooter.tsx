@@ -147,7 +147,7 @@ const NewFooter = () => {
           <h3 className="text-xl font-semibold mb-6">Address</h3>
 
           <p className="text-sm font-medium text-gray-500 whitespace-pre-line mb-4">
-            কাজীপুর, সিরাজগঞ্জ
+            আলামপুর চৌরাস্তা, কাজীপুর, সিরাজগঞ্জ
           </p>
 
           <a
