@@ -161,7 +161,7 @@ const PrivacyPolicyPage = () => {
               </div>
               <div>
                 <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest text-primary/80">Phone Support</span>
-                <p className="text-foreground font-medium text-lg mt-1"><a href="tel:+8801706473787" className="hover:text-primary transition-colors">+88 01706473787</a></p>
+                <p className="text-foreground font-medium text-lg mt-1"><a href="tel:+8801712714334" className="hover:text-primary transition-colors">+88 01712-714334</a></p>
               </div>
             </div>
             <div className="hidden md:block w-px h-32 bg-border"></div>

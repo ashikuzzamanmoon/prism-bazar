@@ -260,7 +260,7 @@ const ShippingPolicyPage = () => {
               <div className="mb-6">
                 <span className="text-xs font-semibold text-muted-foreground uppercase tracking-widest text-primary/80">Support Options</span>
                 <p className="text-foreground font-medium text-lg mt-1"><a href="mailto:prismbazar@gmail.com" className="hover:text-primary transition-colors">prismbazar@gmail.com</a></p>
-                <p className="text-foreground font-medium text-lg mt-1"><a href="tel:+8801706473787" className="hover:text-primary transition-colors">+88 01706473787</a></p>
+                <p className="text-foreground font-medium text-lg mt-1"><a href="tel:+8801712714334" className="hover:text-primary transition-colors">+88 01712-714334</a></p>
               </div>
               <div className="flex items-start gap-2 text-sm text-muted-foreground mt-4 bg-primary/5 p-3 rounded-lg border border-primary/10">
                 <Clock className="w-4 h-4 text-primary shrink-0 mt-0.5" />

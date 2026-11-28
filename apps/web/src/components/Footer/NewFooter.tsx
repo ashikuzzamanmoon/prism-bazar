@@ -155,10 +155,10 @@ const NewFooter = () => {
           </p>
 
           <a
-            href="tel:+8801706473787"
+            href="tel:+8801712714334"
             className="block text-sm font-medium text-gray-500 hover:text-black transition-colors"
           >
-            +88 01706473787
+            +88 01712-714334
           </a>
 
           <a

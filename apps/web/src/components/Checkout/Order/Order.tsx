@@ -166,7 +166,7 @@ const Order = ({
             <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs md:text-sm">
               <p className="font-semibold text-amber-900 mb-1">
                 {selectedPaymentMethod === "BKASH_MANUAL" ? "বিকাশ" : "নগদ"} পার্সোনাল নম্বর:{" "}
-                <span className="text-primary font-bold text-base">01706473787</span>
+                <span className="text-primary font-bold text-base">01712714334</span>
               </p>
               <p className="text-amber-800 mb-2">
                 উপরের নম্বরে মোট ৳{Math.round(total)} Send Money করুন এবং ট্রানজেকশন আইডি (TrxID) দিন:

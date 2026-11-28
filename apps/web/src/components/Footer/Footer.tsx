@@ -146,14 +146,14 @@ export default function Footer() {
                             </div>
 
                             {/* Phone */}
-                            <a href="tel:+8801706473787" className="flex items-center group">
-                                <div className="bg-white shadow-sm border border-gray-100 p-2.5 rounded-xl mr-4 group-hover:bg-[#ff7200] transition-colors duration-300">
-                                    <Phone className="w-5 h-5 text-[#ff7200] group-hover:text-white transition-colors duration-300" />
+                            <a href="tel:+8801712714334" className="flex items-center group">
+                                <div className="bg-white shadow-sm border border-gray-100 p-2.5 rounded-xl mr-4 group-hover:bg-primary transition-colors duration-300">
+                                    <Phone className="w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-gray-400 text-[11px] font-semibold uppercase tracking-wider">Hotline</span>
-                                    <span className="text-gray-800 text-[15px] font-bold tracking-wide group-hover:text-[#ff7200] transition-colors">
-                                        +88 01706473787
+                                    <span className="text-gray-800 text-[15px] font-bold tracking-wide group-hover:text-primary transition-colors">
+                                        +88 01712-714334
                                     </span>
                                 </div>
                             </a>

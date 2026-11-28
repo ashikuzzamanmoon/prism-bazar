@@ -116,13 +116,13 @@ const ContactPage = () => {
                 <div className="space-y-6 flex-grow">
                   {/* Phone */}
                   <div className="flex items-start gap-5 p-4 -mx-4 rounded-2xl hover:bg-slate-50 transition-colors">
-                    <div className="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div className="pt-1">
                       <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Phone Number</h3>
-                      <a href="tel:+8801706473787" className="text-lg font-bold text-slate-800 hover:text-primary transition-colors inline-block">
-                        +88 01706473787
+                      <a href="tel:+8801712714334" className="text-lg font-bold text-slate-800 hover:text-primary transition-colors inline-block">
+                        +88 01712-714334
                       </a>
                     </div>
                   </div>

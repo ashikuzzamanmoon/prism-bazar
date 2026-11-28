@@ -458,7 +458,7 @@ export function ProductDetail({
                     : "নতুন পণ্য"}
                 </Badge>
                 <a
-                  href={`https://wa.me/8801706473787?text=Hello! I'm interested in ${encodeURIComponent(
+                  href={`https://wa.me/8801712714334?text=Hello! I'm interested in ${encodeURIComponent(
                     productData.title,
                   )}`}
                   target="_blank"
