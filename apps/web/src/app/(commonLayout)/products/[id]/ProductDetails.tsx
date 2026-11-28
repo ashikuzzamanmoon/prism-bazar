@@ -8,6 +8,13 @@ import {
   ChevronRight,
   Check,
   Settings,
+  Leaf,
+  HeartPulse,
+  BookOpen,
+  Sparkles,
+  ShieldCheck,
+  FileText,
+  Building2,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
@@ -724,13 +731,166 @@ export function ProductDetail({
           </div>
         </div>
       </div>
+      {/* Product Highlights / Key Features */}
+      {(() => {
+        const raw = productData?.features as unknown as
+          | Array<string | { key?: string; value?: string }>
+          | string
+          | undefined;
+        let items: string[] = [];
+        if (Array.isArray(raw)) {
+          items = raw
+            .map((item) => {
+              if (typeof item === "string") return item;
+              if (item && typeof item === "object") {
+                return item.value
+                  ? `${item.key ? `${item.key}: ` : ""}${item.value}`
+                  : item.key || "";
+              }
+              return String(item);
+            })
+            .filter(Boolean);
+        } else if (typeof raw === "string") {
+          try {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+              items = parsed
+                .map((item) => {
+                  if (typeof item === "string") return item;
+                  if (item && typeof item === "object") {
+                    return item.value
+                      ? `${item.key ? `${item.key}: ` : ""}${item.value}`
+                      : item.key || "";
+                  }
+                  return String(item);
+                })
+                .filter(Boolean);
+            }
+          } catch {
+            items = [];
+          }
+        }
+
+        if (items.length === 0) return null;
+
+        return (
+          <div className="mt-8 p-6 bg-gradient-to-r from-emerald-50/70 via-teal-50/40 to-emerald-50/70 border border-emerald-100 rounded-2xl">
+            <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4">
+              <Sparkles className="w-5 h-5 text-emerald-600" />
+              <span>পণ্যের বিশেষ সুবিধাসমূহ ও বৈশিষ্ট্য</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {items.map((feature, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-2.5 text-sm text-gray-800 bg-white/85 p-3 rounded-xl border border-emerald-100/60 shadow-xs"
+                >
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span className="font-medium leading-relaxed">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
+
+      {/* Specifications & Details (Organic Food / Education Materials) */}
+      {(productData?.ingredients ||
+        productData?.nutritionInfo ||
+        productData?.author ||
+        productData?.publisher ||
+        productData?.isDigital !== undefined ||
+        productData?.brand?.title) && (
+        <div className="mt-8 border border-gray-100 rounded-2xl p-6 bg-white shadow-xs">
+          <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2 mb-5 pb-3 border-b border-gray-100">
+            <ShieldCheck className="w-5 h-5 text-emerald-600" />
+            <span>প্রয়োজনীয় তথ্য ও স্পেসিফিকেশন</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {productData.ingredients && (
+              <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1.5">
+                  <Leaf className="w-4 h-4 text-emerald-600" />
+                  <span>উপাদান (Ingredients)</span>
+                </div>
+                <p className="text-sm text-gray-800 font-medium leading-relaxed">
+                  {productData.ingredients}
+                </p>
+              </div>
+            )}
+            {productData.nutritionInfo && (
+              <div className="p-4 rounded-xl bg-amber-50/50 border border-amber-100/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider mb-1.5">
+                  <HeartPulse className="w-4 h-4 text-amber-600" />
+                  <span>পুষ্টিগুণ (Nutrition Value)</span>
+                </div>
+                <p className="text-sm text-gray-800 font-medium leading-relaxed">
+                  {productData.nutritionInfo}
+                </p>
+              </div>
+            )}
+            {productData.author && (
+              <div className="p-4 rounded-xl bg-blue-50/50 border border-blue-100/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-blue-800 uppercase tracking-wider mb-1.5">
+                  <BookOpen className="w-4 h-4 text-blue-600" />
+                  <span>লেখক / সংকলক (Author)</span>
+                </div>
+                <p className="text-sm text-gray-800 font-medium leading-relaxed">
+                  {productData.author}
+                </p>
+              </div>
+            )}
+            {productData.publisher && (
+              <div className="p-4 rounded-xl bg-indigo-50/50 border border-indigo-100/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-indigo-800 uppercase tracking-wider mb-1.5">
+                  <Building2 className="w-4 h-4 text-indigo-600" />
+                  <span>প্রকাশক / প্রতিষ্ঠান (Publisher)</span>
+                </div>
+                <p className="text-sm text-gray-800 font-medium leading-relaxed">
+                  {productData.publisher}
+                </p>
+              </div>
+            )}
+            {productData.isDigital !== undefined && (
+              <div className="p-4 rounded-xl bg-purple-50/50 border border-purple-100/80">
+                <div className="flex items-center gap-2 text-xs font-bold text-purple-800 uppercase tracking-wider mb-1.5">
+                  <FileText className="w-4 h-4 text-purple-600" />
+                  <span>পণ্যের ধরন / ফরম্যাট</span>
+                </div>
+                <p className="text-sm text-gray-800 font-medium leading-relaxed">
+                  {productData.isDigital
+                    ? "ডিজিটাল সংস্করণ (PDF ফাইল ডাউনলোড)"
+                    : "মুদ্রিত কপি (সরাসরি হোম ডেলিভারি)"}
+                </p>
+              </div>
+            )}
+            {productData.brand?.title && (
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-100">
+                <div className="flex items-center gap-2 text-xs font-bold text-gray-600 uppercase tracking-wider mb-1.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                  <span>অফিসিয়াল ব্র্যান্ড</span>
+                </div>
+                <p className="text-sm text-gray-900 font-semibold">
+                  {productData.brand.title}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {productData?.productFeatures && productData.productFeatures.length > 0 && (
         <ProductSpecs features={productData?.productFeatures} />
       )}
-      <div className=" pt-8 border-t mt-8">
-        <p className="text-gray-700 whitespace-pre-wrap">
+
+      {/* Detailed Description */}
+      <div className="mt-8 border border-gray-100 rounded-2xl p-6 bg-white shadow-xs">
+        <h2 className="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+          বিস্তারিত বিবরণ
+        </h2>
+        <div className="text-gray-700 leading-relaxed whitespace-pre-wrap text-sm sm:text-base">
           {productData?.description}
-        </p>
+        </div>
       </div>
     </div>
   );

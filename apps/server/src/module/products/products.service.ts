@@ -700,6 +700,20 @@ export class ProductsService {
           },
           isPublish: true,
           features: true,
+          ingredients: true,
+          nutritionInfo: true,
+          isDigital: true,
+          author: true,
+          publisher: true,
+          expiryDate: true,
+          brand: {
+            select: {
+              id: true,
+              title: true,
+              slug: true,
+              image: true,
+            },
+          },
           createdAt: true,
           updatedAt: true,
           productInventories: {
@@ -1011,6 +1025,20 @@ export class ProductsService {
         createdAt: true,
         updatedAt: true,
         features: true,
+        ingredients: true,
+        nutritionInfo: true,
+        isDigital: true,
+        author: true,
+        publisher: true,
+        expiryDate: true,
+        brand: {
+          select: {
+            id: true,
+            title: true,
+            slug: true,
+            image: true,
+          },
+        },
         productInventories: {
           select: {
             id: true,
