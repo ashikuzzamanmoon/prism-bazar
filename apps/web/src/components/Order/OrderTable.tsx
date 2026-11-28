@@ -760,16 +760,6 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
                         </span>
                       ))}
                     </div>
-                    <div
-                      style={{
-                        fontSize: "10px",
-                        color: "#9CA3AF",
-                        marginTop: "5px",
-                        fontFamily: "monospace",
-                      }}
-                    >
-                      {item.product.modelNumber.trim()}
-                    </div>
                   </div>
                 </div>
               </td>
@@ -1255,9 +1245,6 @@ const ExpandedRow = ({
                         <p className="text-xs font-semibold text-gray-800 leading-snug line-clamp-2">
                           {item.product.title}
                         </p>
-                        <p className="text-[10px] font-mono text-gray-400 mt-0.5">
-                          {item.product.modelNumber.trim()}
-                        </p>
                         <div className="flex flex-wrap gap-1 mt-1.5">
                           {item.color && (
                             <span className="inline-flex items-center gap-1 bg-gray-50 border border-gray-200 rounded px-1.5 py-0.5 text-[10px] text-gray-600">
@@ -1514,7 +1501,7 @@ export const OrderTable = ({ myOrderData }: { myOrderData: Order[] }) => {
                         {order.items.map((item, i) => (
                           <div key={item.id} className={i > 0 ? "mt-1.5" : ""}>
                             <p className="text-xs text-gray-700 font-medium truncate">
-                              {item.product.modelNumber.trim()}
+                              {item.product.title}
                             </p>
                             <p className="text-[11px] text-gray-400">
                               × {item.quantity}
@@ -1606,7 +1593,7 @@ export const OrderTable = ({ myOrderData }: { myOrderData: Order[] }) => {
                         className="flex justify-between text-xs"
                       >
                         <span className="text-gray-600 truncate max-w-[180px]">
-                          {item.product.modelNumber.trim()}
+                          {item.product.title}
                         </span>
                         <span className="font-semibold text-gray-800 ml-2">
                           {fmt(item.itemTotal)}

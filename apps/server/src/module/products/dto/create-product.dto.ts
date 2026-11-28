@@ -30,10 +30,6 @@ export class CreateProductDto {
 
   @IsString()
   @IsNotEmpty()
-  modelNumber: string;
-
-  @IsString()
-  @IsNotEmpty()
   description: string;
 
   @IsString()

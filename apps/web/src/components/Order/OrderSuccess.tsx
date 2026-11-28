@@ -659,16 +659,7 @@ const InvoiceTemplate = ({ order }: { order: Order }) => (
                         </span>
                       ))}
                     </div>
-                    <div
-                      style={{
-                        fontSize: "10px",
-                        color: "#9CA3AF",
-                        marginTop: "5px",
-                        fontFamily: "monospace",
-                      }}
-                    >
-                      {item.product.modelNumber.trim()}
-                    </div>
+
                   </div>
                 </div>
               </td>
@@ -1209,9 +1200,7 @@ const OrderSuccess = ({ invoiceData }: { invoiceData: Order }) => {
                                 </span>
                               ))}
                             </div>
-                            <p className="text-[10px] text-gray-400 mt-1.5 font-mono">
-                              {item.product.modelNumber.trim()}
-                            </p>
+
                           </div>
                         </div>
                       </td>

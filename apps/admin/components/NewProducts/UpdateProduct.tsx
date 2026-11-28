@@ -82,7 +82,6 @@ interface ProductData {
   id: string;
   title: string;
   slug: string;
-  modelNumber: string;
   description: string;
   brandId?: string;
   price: string | number;
@@ -150,7 +149,6 @@ const productFeatureSchema = z.object({
 const updateProductSchema = z.object({
   title: z.string().min(1, "Title is required"),
   slug: z.string().min(1, "Slug is required"),
-  modelNumber: z.string().min(1, "Model number is required"),
   description: z.string().min(1, "Description is required"),
   brandId: z.string().min(1, "Brand is required"),
   price: z.number().min(0),
@@ -571,7 +569,6 @@ const UpdateProduct = ({
     defaultValues: {
       title: "",
       slug: "",
-      modelNumber: "",
       description: "",
       brandId: "",
       price: undefined,
@@ -653,7 +650,6 @@ const UpdateProduct = ({
       reset({
         title: productData.title ?? "",
         slug: productData.slug ?? "",
-        modelNumber: productData.modelNumber ?? "",
         description: productData.description ?? "",
         brandId: productData.brandId ?? "",
         price:
@@ -819,7 +815,6 @@ const UpdateProduct = ({
       const payload = {
         slug: values.slug,
         title: values.title,
-        modelNumber: values.modelNumber,
         description: values.description,
         brandId: values.brandId,
         price: values.price,
@@ -924,26 +919,8 @@ const UpdateProduct = ({
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                      control={control}
-                      name="modelNumber"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-gray-700">
-                            Model Number <span className="text-red-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="HP250G10-I5-8GB"
-                              className="h-10"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage className="text-xs text-red-500" />
-                        </FormItem>
-                      )}
-                    />
+                  {/* Brand */}
+                  <div>
                     <FormField
                       control={control}
                       name="brandId"

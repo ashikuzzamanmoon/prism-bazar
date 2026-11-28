@@ -56,7 +56,6 @@ export interface IOrderItem {
   product: {
     id: string;
     title: string;
-    modelNumber: string;
     slug: string;
   };
   color: {
@@ -602,7 +601,7 @@ const ManageOrder = () => {
                     {item.orderItems.map((oi) => (
                       <div key={oi.id} className="text-xs">
                         <p className="truncate font-medium text-gray-800">
-                          {oi.product.modelNumber}
+                          {oi.product.title}
                         </p>
                         <p className="text-gray-400">
                           {oi?.color?.name} ·{" "}

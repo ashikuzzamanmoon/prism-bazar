@@ -18,7 +18,6 @@ export interface Product {
   id: string
   slug: string
   title: string
-  modelNumber: string
   price: string
   basePrice: string
   discount: number

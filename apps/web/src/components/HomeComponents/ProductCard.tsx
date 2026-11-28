@@ -183,10 +183,6 @@ const ProductCard = ({ product, onBuyNow, onView }: ProductCardProps) => {
           {product.title}
         </h3>
 
-        <p className="text-[11px] text-gray-400 mb-1">
-          Model: {product.modelNumber}
-        </p>
-
         {/* Variants row */}
         {hasVariants && (
           <div className="flex justify-between flex-wrap items-center gap-2 mt-0.5 mb-2">

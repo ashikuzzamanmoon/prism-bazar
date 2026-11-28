@@ -36,7 +36,6 @@ export interface OrderItem {
 export interface Product {
     id: string;
     title: string;
-    modelNumber: string;
     slug: string;
 }
 

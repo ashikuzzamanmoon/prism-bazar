@@ -169,7 +169,6 @@ model Product {
   id                   String               @id @default(cuid())
   slug                 String               @unique
   title                String
-  modelNumber          String
   description          String
   features             Json?
   brandId              String

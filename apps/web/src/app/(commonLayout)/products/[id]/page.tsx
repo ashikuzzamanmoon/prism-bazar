@@ -36,11 +36,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
     path: `/products/${product.slug}`,
     keywords: sanitizeKeywords([
       product.brand?.title,
-      product.modelNumber,
       product.title,
-      product.features?.flatMap((feature: { key: string; value: string }) =>
-        feature.key.toLowerCase().includes("processor") ? [feature.value] : [],
-      )?.[0],
     ]),
     images: product.productImages?.[0]?.url
       ? [product.productImages[0].url]

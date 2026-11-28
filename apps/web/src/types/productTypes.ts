@@ -71,7 +71,6 @@ export interface IProduct {
   id: string;
   slug: string;
   title: string;
-  modelNumber: string;
   description: string;
   price: string;
   basePrice: string;

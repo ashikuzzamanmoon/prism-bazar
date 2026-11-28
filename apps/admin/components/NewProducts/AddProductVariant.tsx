@@ -864,13 +864,6 @@ const AddProductVariant = () => {
                     </p>
                     <div className="flex items-center gap-3 mt-1 flex-wrap">
                       <span className="text-xs text-gray-500">
-                        Model:{" "}
-                        <span className="font-medium text-gray-700">
-                          {selectedProduct.modelNumber ?? "—"}
-                        </span>
-                      </span>
-                      <span className="text-xs text-gray-400">|</span>
-                      <span className="text-xs text-gray-500">
                         Condition:{" "}
                         <span
                           className={cn(

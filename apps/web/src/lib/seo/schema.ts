@@ -68,7 +68,7 @@ export function buildProductSchema(product: IProduct) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.title,
-    sku: product.modelNumber || product.id,
+    sku: product.slug || product.id,
     image: product.productImages?.map((image) => image.url),
     description: product.description,
     brand: product.brand?.title

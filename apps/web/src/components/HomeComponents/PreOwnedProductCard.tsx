@@ -131,18 +131,12 @@ const PreOwnedProductCard = ({ productData }: { productData: IProduct }) => {
 
                 {/* Details Section */}
                 <div className="flex flex-col grow  p-2 relative z-20">
-                    {/* Brand / Model */}
-                    <p className="text-[11px] md:text-xs text-gray-400 font-medium tracking-wide uppercase mb-1.5 flex items-center gap-2">
-                        {productData.modelNumber && (
-                            <span className="truncate">{productData.modelNumber}</span>
-                        )}
-                        {productData.modelNumber && productData.brand && (
-                            <span className="w-1 h-1 rounded-full bg-gray-300" />
-                        )}
-                        {productData.brand && (
-                            <span className="truncate">{productData.brand}</span>
-                        )}
-                    </p>
+                    {/* Brand */}
+                    {productData.brand && (
+                      <p className="text-[11px] md:text-xs text-gray-400 font-medium tracking-wide uppercase mb-1.5 flex items-center gap-2">
+                        <span className="truncate">{productData.brand}</span>
+                      </p>
+                    )}
 
                     {/* Title */}
                     <h3 className="text-[13px] md:text-sm font-semibold text-gray-800 line-clamp-2 leading-snug mb-3 group-hover:text-[#ff7200] transition-colors duration-200">

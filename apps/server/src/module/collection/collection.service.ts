@@ -233,7 +233,6 @@ export class CollectionService {
                 id: true,
                 slug: true,
                 title: true,
-                modelNumber: true,
                 description: true,
                 price: true,
                 basePrice: true,

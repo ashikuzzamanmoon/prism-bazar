@@ -317,7 +317,6 @@ export class OrdersService {
       product: {
         id: item.product.id,
         title: item.product.title,
-        modelNumber: item.product.modelNumber,
         slug: item.product.slug,
         images: item.product.productImages
           ? item.product.productImages.map((img: any) => ({
@@ -1187,7 +1186,6 @@ export class OrdersService {
               select: {
                 id: true,
                 title: true,
-                modelNumber: true,
                 slug: true,
                 productImages: {
                   select: {
@@ -1284,7 +1282,6 @@ export class OrdersService {
               select: {
                 id: true,
                 title: true,
-                modelNumber: true,
                 slug: true,
                 productImages: {
                   select: {
@@ -1434,7 +1431,6 @@ export class OrdersService {
                 select: {
                   id: true,
                   title: true,
-                  modelNumber: true,
                   slug: true,
                 },
               },
@@ -1495,7 +1491,6 @@ export class OrdersService {
               select: {
                 id: true,
                 title: true,
-                modelNumber: true,
                 slug: true,
               },
             },

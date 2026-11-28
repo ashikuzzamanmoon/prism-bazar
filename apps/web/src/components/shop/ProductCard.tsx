@@ -94,9 +94,6 @@ export default function ProductCard({ product }: Props) {
       </div>
 
       <div className="p-3">
-        <p className="text-xs italic text-gray-500 mb-1 truncate">
-          {product.modelNumber}
-        </p>
         <Link href={`/products/${product.slug}`}>
           <p className="text-sm font-semibold text-gray-800 line-clamp-2 mb-2 hover:text-orange-500 transition-colors">
             {product.title}

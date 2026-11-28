@@ -342,9 +342,7 @@ const OrderFail = ({ invoiceData }: { invoiceData: Order }) => {
                                                         </span>
                                                     ))}
                                                 </div>
-                                                <p className="text-[10px] text-gray-400 mt-1.5 font-mono">
-                                                    {item.product.modelNumber.trim()}
-                                                </p>
+
                                             </td>
 
                                             <td className="px-4 py-4 text-center font-bold text-gray-600 align-middle">

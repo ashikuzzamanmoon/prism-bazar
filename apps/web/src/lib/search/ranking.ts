@@ -71,7 +71,6 @@ export function scoreSearchResult(product: IProduct, query: string) {
   const title = normalize(product.title);
   const description = normalize(product.description || "");
   const brand = normalize(product.brand?.title || "");
-  const modelNumber = normalize(product.modelNumber || "");
   const titleTerms = tokenize(product.title);
   const descriptionTerms = tokenize(product.description || "");
 
@@ -80,13 +79,11 @@ export function scoreSearchResult(product: IProduct, query: string) {
   for (const term of terms) {
     if (title.includes(term)) score += 20;
     if (brand.includes(term)) score += 10;
-    if (modelNumber.includes(term)) score += 12;
     if (description.includes(term)) score += 6;
     score += fuzzyScore(term, [...titleTerms, ...descriptionTerms]);
   }
 
   if (title === normalize(query)) score += 15;
-  if (modelNumber === normalize(query)) score += 15;
 
   score += (product.ratings || 0) * 4;
   score += Math.min(product.reviewsCount || 0, 50) * 0.4;

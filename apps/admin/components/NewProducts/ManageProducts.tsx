@@ -74,7 +74,6 @@ interface IProduct {
   slug: string;
   title: string;
   description: string;
-  modelNumber: string;
   price: string;
   basePrice: string;
   discount: number;
@@ -317,7 +316,6 @@ const ManageProducts = () => {
               <TableHead className="w-10">#</TableHead>
               <TableHead>Image</TableHead>
               <TableHead>Title</TableHead>
-              <TableHead>Model</TableHead>
               <TableHead>Price</TableHead>
               <TableHead>Condition</TableHead>
               <TableHead>Type</TableHead>
@@ -362,12 +360,6 @@ const ManageProducts = () => {
                     <p className="text-xs text-gray-400 truncate max-w-44">
                       {item.slug}
                     </p>
-                  </TableCell>
-
-                  <TableCell>
-                    <span className="text-sm text-gray-600">
-                      {item.modelNumber}
-                    </span>
                   </TableCell>
 
                   <TableCell>

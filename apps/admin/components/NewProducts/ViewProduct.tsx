@@ -73,7 +73,6 @@ interface IViewProduct {
   id: string;
   slug: string;
   title: string;
-  modelNumber: string;
   description: string;
   price: string;
   basePrice: string;
@@ -383,11 +382,7 @@ const ViewProduct = ({
                     value={`৳ ${productData.deliveryCharge}`}
                   />
                 )}
-                <InfoCard
-                  icon={Hash}
-                  label="Model Number"
-                  value={productData.modelNumber}
-                />
+
                 {/* ── NEW: Ratings ── */}
                 <InfoCard
                   icon={Star}
