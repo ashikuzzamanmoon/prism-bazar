@@ -574,13 +574,16 @@ export default function FilterSidebar({ collections, brands }: Props) {
                       htmlFor={`brand-${brand.id}`}
                       className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer font-normal"
                     >
-                      {brand.image && (
+                      {brand.image ? (
                         <img
                           src={brand.image}
                           alt={brand.title}
-                          className="w-5 h-5 object-contain rounded"
+                          className="w-5 h-5 object-contain rounded shrink-0"
+                          onError={(e) => {
+                            e.currentTarget.src = "/prism-bazar-icon.svg";
+                          }}
                         />
-                      )}
+                      ) : null}
                       {brand.title}
                     </Label>
                   </div>

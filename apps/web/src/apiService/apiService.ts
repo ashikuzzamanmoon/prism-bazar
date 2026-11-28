@@ -60,7 +60,7 @@ export const getRelevantProducts = async (categoryId?: string, collectionId?: st
 export const getAllCollections = async (): Promise<Collection[]> => {
   try {
     const response = await fetch(API_ENDPOINTS.Collection.getAll, {
-      next: { revalidate: 3600 },
+      cache: "no-store",
       headers: { "Content-Type": "application/json" },
     });
     const responseData = await response.json();
@@ -73,7 +73,7 @@ export const getAllCollections = async (): Promise<Collection[]> => {
 export const getAllBrands = async (): Promise<Brand[]> => {
   try {
     const response = await fetch(API_ENDPOINTS.BRAND.GetAllBrands, {
-      next: { revalidate: 3600 },
+      cache: "no-store",
       headers: { "Content-Type": "application/json" },
     });
     const responseData = await response.json();
