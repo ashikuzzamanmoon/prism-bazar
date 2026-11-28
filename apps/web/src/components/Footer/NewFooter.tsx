@@ -56,36 +56,6 @@ const NewFooter = () => {
               />
             </a>
             <a
-              href="https://www.tiktok.com/@prismbazar?_t=ZS-8zLJWLWYsE8&_r=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-amber-500"
-            >
-              <Image
-                src={
-                  "https://cdn-icons-png.flaticon.com/128/15789/15789316.png"
-                }
-                alt="facebook"
-                width={30}
-                height={30}
-              />
-            </a>
-            <a
-              href="https://youtube.com/@prismbazar?si=jZwr3_XNhefbN_wW"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-amber-500"
-            >
-              <Image
-                src={
-                  "https://cdn-icons-png.flaticon.com/128/3670/3670147.png"
-                }
-                alt="facebook"
-                width={30}
-                height={30}
-              />
-            </a>
-            <a
               href="#"
               className="text-gray-600 hover:text-amber-500"
             >
@@ -93,7 +63,7 @@ const NewFooter = () => {
                 src={
                   "https://cdn-icons-png.flaticon.com/128/3955/3955024.png"
                 }
-                alt="facebook"
+                alt="instagram"
                 width={30}
                 height={30}
               />

@@ -48,8 +48,6 @@ export default function Footer() {
                         <div className="flex items-center space-x-3 pt-3">
                             {[
                                 { link: "#", icon: "https://cdn-icons-png.flaticon.com/128/5968/5968764.png", alt: "Facebook" },
-                                { link: "https://www.tiktok.com/@prismbazar?_t=ZS-8zLJWLWYsE8&_r=1", icon: "https://cdn-icons-png.flaticon.com/128/15789/15789316.png", alt: "TikTok" },
-                                { link: "https://youtube.com/@prismbazar?si=jZwr3_XNhefbN_wW", icon: "https://cdn-icons-png.flaticon.com/128/3670/3670147.png", alt: "YouTube" },
                                 { link: "#", icon: "https://cdn-icons-png.flaticon.com/128/3955/3955024.png", alt: "Instagram" }
                             ].map((social, idx) => (
                                 <a
