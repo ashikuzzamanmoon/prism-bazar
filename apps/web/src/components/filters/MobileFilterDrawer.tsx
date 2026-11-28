@@ -37,12 +37,12 @@ export default function MobileFilterDrawer({
       {/* Trigger Button */}
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 h-9 w-full px-4 rounded-md border border-orange-300 bg-white text-sm font-medium text-gray-700 hover:border-orange-400 transition-colors"
+        className="flex items-center gap-2 h-9 w-full px-4 rounded-xl border border-emerald-300 bg-white text-sm font-medium text-gray-700 hover:border-emerald-500 transition-colors"
       >
-        <SlidersHorizontal className="w-4 h-4 text-orange-500" />
-        <span>Filters</span>
+        <SlidersHorizontal className="w-4 h-4 text-emerald-600" />
+        <span>ফিল্টার</span>
         {activeFilterCount > 0 && (
-          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-orange-500 text-white text-xs font-bold leading-none">
+          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-600 text-white text-xs font-bold leading-none">
             {activeFilterCount}
           </span>
         )}
@@ -65,10 +65,10 @@ export default function MobileFilterDrawer({
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 shrink-0">
           <div className="flex items-center gap-2">
-            <SlidersHorizontal className="w-4 h-4 text-orange-500" />
-            <span className="font-semibold text-sm text-gray-800">Filters</span>
+            <SlidersHorizontal className="w-4 h-4 text-emerald-600" />
+            <span className="font-semibold text-sm text-gray-800">ফিল্টার</span>
             {activeFilterCount > 0 && (
-              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-orange-500 text-white text-xs font-bold leading-none">
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-600 text-white text-xs font-bold leading-none">
                 {activeFilterCount}
               </span>
             )}

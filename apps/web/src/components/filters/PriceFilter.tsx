@@ -8,8 +8,8 @@ interface Props {
 }
 
 export default function PriceFilter({ minPrice, maxPrice, onApply }: Props) {
-  const [min, setMin] = useState(minPrice || '12000')
-  const [max, setMax] = useState(maxPrice || '150000')
+  const [min, setMin] = useState(minPrice || '50')
+  const [max, setMax] = useState(maxPrice || '5000')
 
   return (
     <div className="border-b border-gray-200 py-3">
@@ -37,9 +37,9 @@ export default function PriceFilter({ minPrice, maxPrice, onApply }: Props) {
       </div>
       <button
         onClick={() => onApply(min, max)}
-        className="w-full bg-orange-500 text-white py-2 rounded text-sm font-medium hover:bg-orange-600 transition cursor-pointer"
+        className="w-full bg-emerald-600 text-white py-2 rounded-xl text-sm font-medium hover:bg-emerald-700 transition cursor-pointer"
       >
-        Apply Price Filter
+        প্রাইস ফিল্টার প্রয়োগ করুন
       </button>
     </div>
   )

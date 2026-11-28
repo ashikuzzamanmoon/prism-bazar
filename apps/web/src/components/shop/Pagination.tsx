@@ -75,10 +75,10 @@ export default function Pagination({ meta }: PaginationProps) {
           variant={isActive ? "default" : "outline"}
           size="sm"
           onClick={() => handlePageChange(page as number)}
-          className={`w-10 h-10 p-0 transition-colors ${
+          className={`w-10 h-10 p-0 rounded-xl transition-colors ${
             isActive 
-              ? "bg-[#ff7200] hover:bg-[#e66a00] text-white border-[#ff7200]" 
-              : "text-gray-600 hover:bg-orange-50 hover:text-[#ff7200] hover:border-[#ff7200]"
+              ? "bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600" 
+              : "text-gray-600 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-600"
           }`}
         >
           {page}
@@ -94,7 +94,7 @@ export default function Pagination({ meta }: PaginationProps) {
         size="sm"
         onClick={() => handlePageChange(meta.page - 1)}
         disabled={meta.page <= 1}
-        className="text-gray-600 w-10 h-10 p-0 hover:bg-orange-50 hover:text-[#ff7200] hover:border-[#ff7200]"
+        className="text-gray-600 w-10 h-10 p-0 rounded-xl hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-600"
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
@@ -108,7 +108,7 @@ export default function Pagination({ meta }: PaginationProps) {
         size="sm"
         onClick={() => handlePageChange(meta.page + 1)}
         disabled={meta.page >= meta.totalPages}
-        className="text-gray-600 w-10 h-10 p-0 hover:bg-orange-50 hover:text-[#ff7200] hover:border-[#ff7200]"
+        className="text-gray-600 w-10 h-10 p-0 rounded-xl hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-600"
       >
         <ChevronRight className="h-4 w-4" />
       </Button>

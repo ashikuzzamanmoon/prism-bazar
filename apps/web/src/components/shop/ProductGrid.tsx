@@ -85,13 +85,13 @@ export default function ProductGrid({ products }: Props) {
 
   if (products?.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-64 text-center px-4">
-        <p className="text-gray-400">No products found.</p>
+      <div className="flex flex-col items-center justify-center h-64 text-center px-4 bg-gray-50/50 rounded-2xl border border-dashed border-gray-200">
+        <p className="text-gray-500 font-medium">কোনো পণ্য পাওয়া যায়নি</p>
         <button
           onClick={handleClearAllFilters}
-          className="mt-3 text-sm font-medium text-orange-500 hover:underline"
+          className="mt-3 text-sm font-semibold text-emerald-700 hover:underline cursor-pointer"
         >
-          Clear filters and show all products
+          ফিল্টার ক্লিয়ার করে সব পণ্য দেখুন
         </button>
       </div>
     );

@@ -21,8 +21,8 @@ import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const MIN_PRICE = 12000;
-const MAX_PRICE = 150000;
+const MIN_PRICE = 50;
+const MAX_PRICE = 5000;
 
 // Scroll wrapper (height limit + scroll)
 const ScrollArea = ({ children }: { children: React.ReactNode }) => (
@@ -375,21 +375,21 @@ export default function FilterSidebar({ collections, brands }: Props) {
       {/* Header */}
       <div className="hidden md:flex items-center justify-between px-4 py-3 border-b border-gray-100">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal className="w-4 h-4 text-orange-500" />
-          <span className="font-semibold text-sm text-gray-800">Filters</span>
+          <SlidersHorizontal className="w-4 h-4 text-emerald-600" />
+          <span className="font-semibold text-sm text-gray-800">ফিল্টার</span>
           {activeFilterCount > 0 && (
-            <Badge className="bg-orange-500 hover:bg-orange-500 text-white text-xs h-5 px-1.5">
+            <Badge className="bg-emerald-600 hover:bg-emerald-600 text-white text-xs h-5 px-1.5">
               {activeFilterCount}
             </Badge>
           )}
           {isPending && (
-            <Loader2 className="w-3.5 h-3.5 animate-spin text-orange-400" />
+            <Loader2 className="w-3.5 h-3.5 animate-spin text-emerald-500" />
           )}
         </div>
         {activeFilterCount > 0 && (
           <button
             onClick={clearAllFilters}
-            className="text-xs text-orange-500 hover:underline font-medium"
+            className="text-xs text-emerald-600 hover:underline font-medium"
           >
             Clear all
           </button>
@@ -416,10 +416,10 @@ export default function FilterSidebar({ collections, brands }: Props) {
             <Slider
               min={MIN_PRICE}
               max={MAX_PRICE}
-              step={500}
+              step={50}
               value={priceRange}
               onValueChange={setPriceRange}
-              className="**:[[role=slider]]:bg-orange-500 **:[[role=slider]]:border-orange-500 [&_.bg-primary]:bg-orange-500 pt-2 pb-4"
+              className="**:[[role=slider]]:bg-emerald-600 **:[[role=slider]]:border-emerald-600 [&_.bg-primary]:bg-emerald-600 pt-2 pb-4"
             />
             <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
               <span className="bg-gray-100 px-2 py-1 rounded font-medium">
@@ -432,9 +432,9 @@ export default function FilterSidebar({ collections, brands }: Props) {
             </div>
             <Button
               onClick={applyPriceFilter}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm h-9"
+              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm h-9 rounded-xl font-medium"
             >
-              Apply Price Filter
+              প্রাইস ফিল্টার প্রয়োগ করুন
             </Button>
           </AccordionContent>
         </AccordionItem>
@@ -455,7 +455,7 @@ export default function FilterSidebar({ collections, brands }: Props) {
                     id={`col-${col.id}`}
                     checked={activeCollections.includes(col.slug)}
                     onCheckedChange={() => toggleCollection(col.slug)}
-                    className="data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500"
+                    className="data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
                   />
                   <Label
                     htmlFor={`col-${col.id}`}
@@ -491,7 +491,7 @@ export default function FilterSidebar({ collections, brands }: Props) {
                       id={`cat-${cat.id}`}
                       checked={activeCategories.includes(cat.slug)}
                       onCheckedChange={() => toggleCategory(cat.slug)}
-                      className="data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500"
+                      className="data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
                     />
                     <Label
                       htmlFor={`cat-${cat.id}`}
@@ -531,7 +531,7 @@ export default function FilterSidebar({ collections, brands }: Props) {
                       id={`sub-${sub.id}`}
                       checked={activeSubCategories.includes(sub.slug)}
                       onCheckedChange={() => toggleSubCategory(sub.slug)}
-                      className="data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500"
+                      className="data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
                     />
                     <Label
                       htmlFor={`sub-${sub.id}`}
@@ -568,7 +568,7 @@ export default function FilterSidebar({ collections, brands }: Props) {
                       id={`brand-${brand.id}`}
                       checked={activeBrands.includes(brand.slug)}
                       onCheckedChange={() => toggleBrand(brand.slug)}
-                      className="data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500"
+                      className="data-[state=checked]:bg-emerald-600 data-[state=checked]:border-emerald-600"
                     />
                     <Label
                       htmlFor={`brand-${brand.id}`}

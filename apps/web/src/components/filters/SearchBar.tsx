@@ -58,7 +58,7 @@ const SearchBar = () => {
 
   return (
     <div className="relative w-full md:max-w-md ">
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-orange-500" />
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-emerald-600" />
 
       <input
         type="text"
@@ -72,8 +72,8 @@ const SearchBar = () => {
             }
           }
         }}
-        placeholder="Search products..."
-        className="w-full h-9 pl-10 pr-9 rounded-md border border-orange-300 focus:outline-none focus:ring-1 focus:ring-orange-300 focus:border-orange-300 bg-white text-sm"
+        placeholder="পণ্য খুঁজুন (মধু, ঘি, তেল, বই, শিট)..."
+        className="w-full h-9 pl-10 pr-9 rounded-xl border border-emerald-300 focus:outline-none focus:ring-1 focus:ring-emerald-400 focus:border-emerald-500 bg-white text-sm"
       />
 
       {value && (

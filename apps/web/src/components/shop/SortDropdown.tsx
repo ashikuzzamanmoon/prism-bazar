@@ -11,9 +11,9 @@ import {
 import { Button } from "@/components/ui/button";
 
 const SORT_OPTIONS = [
-  { label: "Default Sorting", value: "" },
-  { label: "Price: Low to High", value: "asc" },
-  { label: "Price: High to Low", value: "desc" },
+  { label: "ডিফল্ট সাজানো", value: "" },
+  { label: "মূল্য: কম থেকে বেশি", value: "asc" },
+  { label: "মূল্য: বেশি থেকে কম", value: "desc" },
 ];
 
 export default function SortDropdown({ activeSort }: { activeSort?: string }) {
@@ -37,7 +37,7 @@ export default function SortDropdown({ activeSort }: { activeSort?: string }) {
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className="min-w-45 cursor-pointer justify-between border-gray-300 text-gray-700 text-sm font-normal hover:text-primary hover:bg-white hover:border-orange-400 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="min-w-45 cursor-pointer justify-between border-gray-200 text-gray-700 text-sm font-medium hover:text-emerald-700 hover:bg-emerald-50/50 hover:border-emerald-400 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0"
         >
           {activeLabel}
           <ChevronDown className="w-4 h-4 text-gray-500 ml-2" />
@@ -57,8 +57,8 @@ export default function SortDropdown({ activeSort }: { activeSort?: string }) {
               className={`flex items-center justify-between text-sm rounded-md px-3 py-2 cursor-pointer
                 ${
                   isActive
-                    ? "bg-orange-500 text-white focus:bg-orange-500 focus:text-white"
-                    : "text-gray-700 focus:bg-gray-50 focus:text-gray-700"
+                    ? "bg-emerald-600 text-white focus:bg-emerald-600 focus:text-white"
+                    : "text-gray-700 focus:bg-emerald-50 focus:text-emerald-800"
                 }
               `}
             >

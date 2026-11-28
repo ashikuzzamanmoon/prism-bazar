@@ -105,17 +105,21 @@ async function ProductsPageContent({
         </aside>
 
         <main className="flex-1 min-w-0 w-full">
-          <div className="hidden md:flex items-center justify-between gap-4 mb-6 bg-gray-50 p-4 rounded-lg">
+          <div className="hidden md:flex items-center justify-between gap-4 mb-6 bg-emerald-50/40 border border-emerald-100/60 p-4 rounded-2xl">
             <SearchBar />
             <div className="min-w-38">
               <SortDropdown activeSort={filters.sortByPrice} />
             </div>
           </div>
 
-          <p className="text-sm text-gray-600 font-semibold mb-4">
-            Showing {products?.length || 0} of{" "}
-            {meta?.total || products?.length || 0} Products...
-          </p>
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-base sm:text-lg font-bold text-gray-900">
+              পণ্য সামগ্রী
+            </h1>
+            <p className="text-xs sm:text-sm text-gray-500 font-medium">
+              মোট {meta?.total || products?.length || 0} টির মধ্যে {products?.length || 0} টি পণ্য
+            </p>
+          </div>
           <ProductGrid products={products} />
           <Pagination meta={meta} />
         </main>
