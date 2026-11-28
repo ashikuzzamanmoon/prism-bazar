@@ -68,7 +68,8 @@ const Card = ({ productData }: { productData: IProduct }) => {
         // Fallback if stock is stored on the main product directly
         totalStock = Number((productData as any)?.stock) || 0;
     }
-    const isOutOfStock = totalStock <= 0;
+    const isDigital = Boolean(productData?.isDigital);
+    const isOutOfStock = !isDigital && totalStock <= 0;
 
     return (
         <Link

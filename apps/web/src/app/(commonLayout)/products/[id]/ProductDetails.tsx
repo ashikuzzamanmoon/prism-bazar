@@ -178,11 +178,15 @@ export function ProductDetail({
     totalStock = Number((productData as any)?.stock) || 0;
   }
 
+  const isDigital = Boolean(productData?.isDigital);
+
   // If we have selected a color, only consider that color's stock
-  const availableStock = selectedColor
+  const availableStock = isDigital
+    ? 9999
+    : selectedColor
     ? Number(selectedColor.stock) || 0
     : totalStock;
-  const inStock = availableStock > 0;
+  const inStock = isDigital || availableStock > 0;
 
   const displayImages =
     selectedColor && selectedColor.images && selectedColor.images.length > 0
@@ -676,14 +680,14 @@ export function ProductDetail({
             <div className="mb-6">
               {inStock ? (
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                  <span className="text-green-600 font-medium">In Stock</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="text-emerald-700 font-semibold">স্টকে আছে (In Stock)</span>
                   {/* <span className="text-gray-500">({availableStock} items available)</span> */}
                 </div>
               ) : (
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="w-2 h-2 rounded-full bg-red-500"></span>
-                  <span className="text-red-600 font-medium">Out of Stock</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                  <span className="text-red-600 font-medium">স্টক শেষ (Out of Stock)</span>
                 </div>
               )}
             </div>
