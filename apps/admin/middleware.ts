@@ -48,8 +48,8 @@ export function middleware(request: NextRequest) {
     const isAdmin = roles.includes("ADMIN");
 
     // ✅ Access Control
-    // Only SUPER_ADMIN can access /super-admin
-    if (path.startsWith("/super-admin") && !isSuperAdmin) {
+    // Redirect /super-admin directly to /admin dashboard
+    if (path.startsWith("/super-admin")) {
       return NextResponse.redirect(new URL("/admin", request.url));
     }
 
@@ -60,9 +60,7 @@ export function middleware(request: NextRequest) {
 
     // ✅ Redirect to correct dashboard from root
     if (path === "/") {
-      if (isSuperAdmin) {
-        return NextResponse.redirect(new URL("/super-admin", request.url));
-      } else if (isAdmin) {
+      if (isAdmin || isSuperAdmin) {
         return NextResponse.redirect(new URL("/admin", request.url));
       }
     }

@@ -1,9 +1,7 @@
-const SuperAdminMainPage=() =>{
-    return (
-        <div>
-            <h1>Super Admin Main Page</h1>
-        </div>
-    )
-}
+import { redirect } from "next/navigation";
+
+const SuperAdminMainPage = () => {
+  redirect("/admin");
+};
 
 export default SuperAdminMainPage;
