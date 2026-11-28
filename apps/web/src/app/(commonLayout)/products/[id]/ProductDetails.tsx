@@ -229,8 +229,11 @@ export function ProductDetail({
   };
 
   const handleAddToCart = (product: IProduct) => {
-    if (isInCart(currentVariantId)) {
-      dispatch(removeFromCart({ id: currentVariantId }));
+    const existingItem = cardItems.find(
+      (item) => item.id === currentVariantId || item.id.startsWith(product.id),
+    );
+    if (existingItem) {
+      dispatch(removeFromCart({ id: existingItem.id }));
       toast.error(`${product.title} removed from cart`);
     } else {
       const cartPayload = {
@@ -696,12 +699,16 @@ export function ProductDetail({
               <Button
                 variant="outline"
                 className={`w-full sm:w-auto flex items-center justify-center gap-2 shadow-none px-4 md:px-8 font-semibold rounded-md py-5 transition-colors duration-300 ${isBaseProductInCart(productData.id)
-                    ? "bg-red-50 text-red-500 border-red-200 hover:bg-red-100"
+                    ? "bg-red-50 text-red-600 border-red-200 hover:bg-red-100"
                     : "bg-white text-gray-700 hover:bg-primary hover:text-white"
                   }`}
                 onClick={() => handleAddToCart(productData)}
               >
-                <span>Add to cart</span>
+                <span>
+                  {isBaseProductInCart(productData.id)
+                    ? "Remove from cart"
+                    : "Add to cart"}
+                </span>
                 <Heart
                   className={`w-5 h-5 transition-colors duration-300 ${isBaseProductInCart(productData.id)
                       ? "text-red-500 fill-red-500"
