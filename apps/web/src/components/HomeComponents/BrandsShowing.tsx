@@ -34,9 +34,15 @@ const BrandsShowing = ({ brandData }: { brandData: IBrand[] }) => {
         if (api) api.scrollNext();
     }, [api]);
 
-    const visibleBrands = brandData
-        .filter((brand) => !brand.isDelete && brand.isPublish)
-        .sort((a, b) => a.order - b.order);
+    const brandList: IBrand[] = Array.isArray(brandData)
+        ? brandData
+        : (brandData as any)?.data && Array.isArray((brandData as any).data)
+            ? (brandData as any).data
+            : [];
+
+    const visibleBrands: IBrand[] = brandList
+        .filter((brand: IBrand) => !brand.isDelete && brand.isPublish)
+        .sort((a: IBrand, b: IBrand) => a.order - b.order);
 
     if (!visibleBrands.length) return null;
 
