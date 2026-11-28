@@ -61,6 +61,32 @@ const NewFooter = () => {
             >
               <Image
                 src={
+                  "https://cdn-icons-png.flaticon.com/128/15789/15789316.png"
+                }
+                alt="tiktok"
+                width={30}
+                height={30}
+              />
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-amber-500"
+            >
+              <Image
+                src={
+                  "https://cdn-icons-png.flaticon.com/128/3670/3670147.png"
+                }
+                alt="youtube"
+                width={30}
+                height={30}
+              />
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-amber-500"
+            >
+              <Image
+                src={
                   "https://cdn-icons-png.flaticon.com/128/3955/3955024.png"
                 }
                 alt="instagram"
