@@ -47,16 +47,16 @@ export default function Footer() {
                         {/* Social Icons */}
                         <div className="flex items-center space-x-3 pt-3">
                             {[
-                                { link: "https://www.facebook.com/share/19aQ8bU3ch/?mibextid=wwXIfr", icon: "https://cdn-icons-png.flaticon.com/128/5968/5968764.png" },
-                                { link: "https://www.tiktok.com/@prismbazar?_t=ZS-8zLJWLWYsE8&_r=1", icon: "https://cdn-icons-png.flaticon.com/128/15789/15789316.png" },
-                                { link: "https://youtube.com/@prismbazar?si=jZwr3_XNhefbN_wW", icon: "https://cdn-icons-png.flaticon.com/128/3670/3670147.png" },
-                                { link: "https://www.facebook.com/share/19aQ8bU3ch/?mibextid=wwXIfr", icon: "https://cdn-icons-png.flaticon.com/128/3955/3955024.png" }
+                                { link: "#", icon: "https://cdn-icons-png.flaticon.com/128/5968/5968764.png", alt: "Facebook" },
+                                { link: "https://www.tiktok.com/@prismbazar?_t=ZS-8zLJWLWYsE8&_r=1", icon: "https://cdn-icons-png.flaticon.com/128/15789/15789316.png", alt: "TikTok" },
+                                { link: "https://youtube.com/@prismbazar?si=jZwr3_XNhefbN_wW", icon: "https://cdn-icons-png.flaticon.com/128/3670/3670147.png", alt: "YouTube" },
+                                { link: "#", icon: "https://cdn-icons-png.flaticon.com/128/3955/3955024.png", alt: "Instagram" }
                             ].map((social, idx) => (
                                 <a
                                     key={idx}
                                     href={social.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target={social.link.startsWith("http") ? "_blank" : undefined}
+                                    rel={social.link.startsWith("http") ? "noopener noreferrer" : undefined}
                                     className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#ff7200]/30 group transition-all duration-300 relative overflow-hidden"
                                 >
                                     {/* Hover background fill */}

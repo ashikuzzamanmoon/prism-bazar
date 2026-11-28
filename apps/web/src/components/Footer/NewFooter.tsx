@@ -43,9 +43,7 @@ const NewFooter = () => {
           {/* Social Icons */}
           <div className="flex space-x-3">
             <a
-              href="https://www.facebook.com/share/19aQ8bU3ch/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="text-gray-600 hover:text-amber-500"
             >
               <Image
@@ -88,9 +86,7 @@ const NewFooter = () => {
               />
             </a>
             <a
-              href="https://www.facebook.com/share/19aQ8bU3ch/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="text-gray-600 hover:text-amber-500"
             >
               <Image
