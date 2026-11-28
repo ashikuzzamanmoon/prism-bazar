@@ -15,7 +15,6 @@ import {
   ShieldCheck,
   FileText,
   Building2,
-  Calendar,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
@@ -187,8 +186,7 @@ export function ProductDetail({
   const isOrganicProduct =
     productData?.type === "ORGANIC_FOOD" ||
     Boolean(productData?.ingredients) ||
-    Boolean(productData?.nutritionInfo) ||
-    Boolean(productData?.expiryDate);
+    Boolean(productData?.nutritionInfo);
 
   // If we have selected a color, only consider that color's stock
   const availableStock = isDigital
@@ -534,7 +532,7 @@ export function ProductDetail({
             </div>
 
             {/* Organic Food Essentials */}
-            {(productData.ingredients || productData.nutritionInfo || productData.expiryDate) && (
+            {(productData.ingredients || productData.nutritionInfo) && (
               <div className="mb-5 p-3.5 bg-gradient-to-br from-emerald-50/80 to-teal-50/50 border border-emerald-200/70 rounded-xl text-xs md:text-sm space-y-2">
                 {productData.ingredients && (
                   <p className="text-gray-800 leading-relaxed">
@@ -546,20 +544,6 @@ export function ProductDetail({
                   <p className="text-gray-800 leading-relaxed">
                     <span className="font-bold text-emerald-900">🍎 পুষ্টিগুণ:</span>{" "}
                     {productData.nutritionInfo}
-                  </p>
-                )}
-                {productData.expiryDate && (
-                  <p className="text-gray-800 leading-relaxed">
-                    <span className="font-bold text-emerald-900">⏳ মেয়াদ / উপযোগিতা:</span>{" "}
-                    {(() => {
-                      try {
-                        const d = new Date(productData.expiryDate);
-                        if (!isNaN(d.getTime())) {
-                          return d.toLocaleDateString("bn-BD", { year: "numeric", month: "long", day: "numeric" });
-                        }
-                      } catch {}
-                      return String(productData.expiryDate);
-                    })()}
                   </p>
                 )}
               </div>
@@ -747,7 +731,6 @@ export function ProductDetail({
       {/* Specifications & Details (Organic Food / Education Materials) */}
       {(productData?.ingredients ||
         productData?.nutritionInfo ||
-        productData?.expiryDate ||
         (isEducationProduct && (productData?.author || productData?.publisher || productData?.isDigital !== undefined)) ||
         productData?.brand?.title) && (
         <div className="mt-8 border border-gray-100 rounded-2xl p-6 bg-white shadow-xs">
@@ -775,25 +758,6 @@ export function ProductDetail({
                 </div>
                 <p className="text-sm text-gray-800 font-medium leading-relaxed">
                   {productData.nutritionInfo}
-                </p>
-              </div>
-            )}
-            {productData.expiryDate && (
-              <div className="p-4 rounded-xl bg-teal-50/50 border border-teal-100/80">
-                <div className="flex items-center gap-2 text-xs font-bold text-teal-800 uppercase tracking-wider mb-1.5">
-                  <Calendar className="w-4 h-4 text-teal-600" />
-                  <span>মেয়াদ / ব্যবহারযোগ্যতা (Best Before)</span>
-                </div>
-                <p className="text-sm text-gray-800 font-medium leading-relaxed">
-                  {(() => {
-                    try {
-                      const d = new Date(productData.expiryDate);
-                      if (!isNaN(d.getTime())) {
-                        return d.toLocaleDateString("bn-BD", { year: "numeric", month: "long", day: "numeric" });
-                      }
-                    } catch {}
-                    return String(productData.expiryDate);
-                  })()}
                 </p>
               </div>
             )}
