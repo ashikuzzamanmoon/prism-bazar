@@ -8,7 +8,6 @@ import {
   ChevronRight,
   Check,
   Settings,
-  GitCompare,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
@@ -322,9 +321,6 @@ export function ProductDetail({
     }
   };
 
-  const handleCompare = (product: IProduct) => {
-    router.push(`/compare/${product.slug}`);
-  };
 
   const increaseQuantitySafe = () => {
     if (quantity < availableStock) {
@@ -724,15 +720,6 @@ export function ProductDetail({
                   <Share2 className="h-5 w-5" />
                 )}
               </Button> */}
-
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 shadow-none px-4 md:px-8 font-semibold rounded-md py-5 transition-colors duration-300 bg-white text-gray-700 hover:bg-primary hover:text-white"
-                onClick={() => handleCompare(productData)}
-              >
-                <GitCompare className="w-5 h-5" />
-                <span>Compare</span>
-              </Button>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { Heart, Layers, ShoppingCart, GitCompare } from "lucide-react";
+import { Heart, Layers, ShoppingCart } from "lucide-react";
 import { IProduct, IProductColor, IProductOptionGroup } from "@/types/productTypes";
 import { cn } from "@/utils/utils";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -109,10 +109,6 @@ const ProductCard = ({ product, onBuyNow, onView }: ProductCardProps) => {
     }
   };
 
-  const handleCompare = (product: IProduct) => {
-    console.log("compare clicked", product);
-    router.push(`/compare/${product.slug}`);
-  };
 
   return (
     <div
@@ -241,7 +237,7 @@ const ProductCard = ({ product, onBuyNow, onView }: ProductCardProps) => {
             </div>
           </div>
 
-          {/* Buy Now + Compare — shown on hover (desktop) */}
+          {/* Buy Now — shown on hover (desktop) */}
           <div className="absolute inset-0 hidden items-center gap-2 opacity-0 transition-opacity duration-200 md:flex group-hover:opacity-100">
             <Button
               onClick={(e) => {
@@ -250,28 +246,14 @@ const ProductCard = ({ product, onBuyNow, onView }: ProductCardProps) => {
                 onBuyNow(product);
               }}
               size="default"
-              className="flex-1 text-xs font-semibold border border-primary/30 bg-primary/30 text-primary hover:text-white cursor-pointer"
+              className="w-full text-xs font-semibold border border-primary/30 bg-primary/30 text-primary hover:text-white cursor-pointer"
             >
               <ShoppingCart className="w-3.5 h-3.5 mr-1" />
               Buy Now
             </Button>
-
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                handleCompare?.(product);
-              }}
-              size="default"
-              variant="outline"
-              className="flex-1 text-xs font-semibold border border-gray-300 bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer"
-            >
-              <GitCompare className="w-3.5 h-3.5 mr-1" />
-              Compare
-            </Button>
           </div>
 
-          {/* Buy Now + Compare — always visible on mobile */}
+          {/* Buy Now — always visible on mobile */}
           <div className="mt-2 md:hidden flex gap-2">
             <Button
               onClick={(e) => {
@@ -279,23 +261,10 @@ const ProductCard = ({ product, onBuyNow, onView }: ProductCardProps) => {
                 e.stopPropagation();
                 onBuyNow(product);
               }}
-              className="flex-1 h-8 text-[11px] font-semibold border border-primary/30 bg-primary/30 text-primary hover:text-white cursor-pointer px-2"
+              className="w-full h-8 text-[11px] font-semibold border border-primary/30 bg-primary/30 text-primary hover:text-white cursor-pointer px-2"
             >
               <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
               Buy Now
-            </Button>
-
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                handleCompare?.(product);
-              }}
-              variant="outline"
-              className="w-8 h-8 p-0 shrink-0 font-semibold shadow-none border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 cursor-pointer flex items-center justify-center"
-              title="Compare"
-            >
-              <GitCompare className="w-3.5 h-3.5" />
             </Button>
           </div>
         </div>
