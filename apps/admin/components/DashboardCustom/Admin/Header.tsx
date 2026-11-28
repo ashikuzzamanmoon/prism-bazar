@@ -4,7 +4,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Bell,
   ChevronLeft,
   HelpCircle,
   LogOut,
@@ -63,7 +62,6 @@ const Header = ({
 }: HeaderProps) => {
   const [internalCollapsed, setInternalCollapsed] = useState(collapsed);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [notificationCount, setNotificationCount] = useState(3);
   const { theme, setTheme } = useTheme();
   const breadcrumbs = useAppSelector(
     (state: RootState) => state.breadcrumb.breadcrumbs
@@ -155,45 +153,6 @@ const Header = ({
       </div>
 
       <div className="flex items-center gap-4">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="relative bg-gray-100 cursor-pointer"
-            >
-              <Bell className="h-5 w-5" />
-              {notificationCount > 0 && (
-                <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-red-500 text-white">
-                  {notificationCount}
-                </Badge>
-              )}
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-80">
-            <DropdownMenuLabel>Notifications</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {[...Array(3)].map((_, i) => (
-              <DropdownMenuItem
-                key={i}
-                className="flex flex-col items-start py-2"
-              >
-                <div className="font-medium">New order received</div>
-                <div className="text-xs text-muted-foreground">
-                  Order #{1000 + i} has been placed
-                </div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  {i + 1} hour{i !== 0 ? "s" : ""} ago
-                </div>
-              </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="justify-center font-medium">
-              View all notifications
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-
         {/* Theme Toggle */}
         <Button
           variant="ghost"
